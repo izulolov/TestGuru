@@ -1,0 +1,6 @@
+      invoke  active_record
+      create    db/migrate/20230905080745_create_categories.rb
+      create    app/models/category.rb
+      invoke    test_unit
+      create      test/models/category_test.rb
+      create      test/fixtures/categories.yml
