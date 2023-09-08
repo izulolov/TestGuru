@@ -28,33 +28,33 @@ categories = Category.create!([
           ])
 
 tests = Test.create!([
-          {title: 'Ruby', level: 1, category_id: Category.all[0].id},
-          {title: 'Ruby', level: 2, category_id: Category.all[1].id},
-          {title: 'Ruby', level: 3, category_id: Category.all[2].id},
-          {title: 'HTML', level: 1, category_id: Category.all[0].id},
-          {title: 'HTML', level: 2, category_id: Category.all[1].id},
-          {title: 'CSS', level: 1, category_id: Category.all[0].id},
-          {title: 'CSS', level: 2, category_id: Category.all[1].id},
-          {title: 'SQL', level: 1, category_id: Category.all[0].id},
-          {title: 'C#', level: 1, category_id: Category.all[0].id},
-          {title: 'C#', level: 2, category_id: Category.all[1].id},
-          {title: 'C#', level: 3, category_id: Category.all[2].id},
-          {title: 'C++', level: 1, category_id: Category.all[0].id},
-          {title: 'C++', level: 3, category_id: Category.all[2].id},
-          {title: 'JS', level: 1, category_id: Category.all[0].id},
-          {title: 'JS', level: 2, category_id: Category.all[1].id},
-          {title: 'Java', level: 2, category_id: Category.all[1].id},
-          {title: 'Java', level: 3, category_id: Category.all[2].id},
-          {title: 'Python', level: 1, category_id: Category.all[0].id},
-          {title: 'Python', level: 2, category_id: Category.all[1].id},
-          {title: 'Go', level: 2, category_id: Category.all[1].id},
-          {title: 'Go', level: 3, category_id: Category.all[2].id}
+          {title: 'Ruby', level: 1, category_id: categories[0].id},
+          {title: 'Ruby', level: 2, category_id: categories[1].id},
+          {title: 'Ruby', level: 3, category_id: categories[2].id},
+          {title: 'HTML', level: 1, category_id: categories[0].id},
+          {title: 'HTML', level: 2, category_id: categories[1].id},
+          {title: 'CSS', level: 1, category_id: categories[0].id},
+          {title: 'CSS', level: 2, category_id: categories[1].id},
+          {title: 'SQL', level: 1, category_id: categories[0].id},
+          {title: 'C#', level: 1, category_id: categories[0].id},
+          {title: 'C#', level: 2, category_id: categories[1].id},
+          {title: 'C#', level: 3, category_id: categories[2].id},
+          {title: 'C++', level: 1, category_id: categories[0].id},
+          {title: 'C++', level: 3, category_id: categories[2].id},
+          {title: 'JS', level: 1, category_id: categories[0].id},
+          {title: 'JS', level: 2, category_id: categories[1].id},
+          {title: 'Java', level: 2, category_id: categories[1].id},
+          {title: 'Java', level: 3, category_id: categories[2].id},
+          {title: 'Python', level: 1, category_id: categories[0].id},
+          {title: 'Python', level: 2, category_id: categories[1].id},
+          {title: 'Go', level: 2, category_id: categories[1].id},
+          {title: 'Go', level: 3, category_id: categories[2].id}
                     ])
                     
 questions = Question.create!([
-          {body: 'Как узнать длину строки в ruby?', test_id: Test.all[0].id},
-          {body: 'Как удалить элемент из массива ruby?', test_id: Test.all[0].id},
-          {body: 'Как преобразовать переменную из числа в строку?', test_id: Test.all[0].id}
+          {body: 'Как узнать длину строки в ruby?', test_id: tests[0].id},
+          {body: 'Как удалить элемент из массива ruby?', test_id: tests[0].id},
+          {body: 'Как преобразовать переменную из числа в строку?', test_id: tests[0].id}
           ])
 
 answers = Answer.create!([
@@ -80,12 +80,3 @@ usertests = UserTest.create!([
           {user_id: users[0].id, test_id: tests[0].id},
           {user_id: users[0].id, test_id: tests[0].id},
           {user_id: users[1].id, test_id: tests[0].id}])
-
-#us = User.find_by!(id: 1)
-#tt = Test.find_by!(id: 1)
-#UserTest.create!(user_id: us.id, test_id: tt.id)
-#UserTest.create!(user_id: us.id, test_id: tt.id)
-
-#tt = Test.sort_categories('Middle')
-
-#puts tt
