@@ -1,7 +1,14 @@
 class User < ApplicationRecord
-  has_and_belongs_to_many :tests
+
+  # Две has_many ниже на замену has_and_belongs_to_many :users
+  # has_and_belongs_to_many :users хочет таблицу tests_users,
+  # однако я решил использовать уже созданную таблицу user_tests.
+  has_many :user_tests
+  has_many :tests, through: :user_tests
+  # has_and_belongs_to_many :tests
+
+  # Тесты по уровню
   def tests_by_level(test_level)
-    Test.joins('JOIN user_tests ON tests.id = user_tests.test_id')
-    .where('user_tests.user_id = ? AND tests.level = ?', id, test_level)
+    tests.where(level: test_level)
   end
 end
