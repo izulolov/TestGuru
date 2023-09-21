@@ -5,7 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
+#=begin
 users = User.create!([{name: 'Ikbol', score: 0},
           {name: 'Artem', score: 0},
           {name: 'Dmitry', score: 0},
@@ -28,27 +28,27 @@ categories = Category.create!([
           ])
 
 tests = Test.create!([
-          {title: 'Ruby', level: 1, category_id: categories[0].id},
-          {title: 'Ruby', level: 2, category_id: categories[1].id},
-          {title: 'Ruby', level: 3, category_id: categories[2].id},
-          {title: 'HTML', level: 1, category_id: categories[0].id},
-          {title: 'HTML', level: 2, category_id: categories[1].id},
-          {title: 'CSS', level: 1, category_id: categories[0].id},
-          {title: 'CSS', level: 2, category_id: categories[1].id},
-          {title: 'SQL', level: 1, category_id: categories[0].id},
-          {title: 'C#', level: 1, category_id: categories[0].id},
-          {title: 'C#', level: 2, category_id: categories[1].id},
-          {title: 'C#', level: 3, category_id: categories[2].id},
-          {title: 'C++', level: 1, category_id: categories[0].id},
-          {title: 'C++', level: 3, category_id: categories[2].id},
-          {title: 'JS', level: 1, category_id: categories[0].id},
-          {title: 'JS', level: 2, category_id: categories[1].id},
-          {title: 'Java', level: 2, category_id: categories[1].id},
-          {title: 'Java', level: 3, category_id: categories[2].id},
-          {title: 'Python', level: 1, category_id: categories[0].id},
-          {title: 'Python', level: 2, category_id: categories[1].id},
-          {title: 'Go', level: 2, category_id: categories[1].id},
-          {title: 'Go', level: 3, category_id: categories[2].id}
+          {title: 'Ruby', level: 1, category_id: categories[0].id, user_id: users[13].id},
+          {title: 'Ruby', level: 2, category_id: categories[1].id, user_id: users[9].id},
+          {title: 'Ruby', level: 3, category_id: categories[2].id, user_id: users[10].id},
+          {title: 'HTML', level: 1, category_id: categories[0].id, user_id: users[7].id},
+          {title: 'HTML', level: 2, category_id: categories[1].id, user_id: users[8].id},
+          {title: 'CSS', level: 1, category_id: categories[0].id, user_id: users[8].id},
+          {title: 'CSS', level: 2, category_id: categories[1].id, user_id: users[2].id},
+          {title: 'SQL', level: 1, category_id: categories[0].id, user_id: users[3].id},
+          {title: 'C#', level: 1, category_id: categories[0].id, user_id: users[3].id},
+          {title: 'C#', level: 2, category_id: categories[1].id, user_id: users[3].id},
+          {title: 'C#', level: 3, category_id: categories[2].id, user_id: users[7].id},
+          {title: 'C++', level: 1, category_id: categories[0].id, user_id: users[11].id},
+          {title: 'C++', level: 3, category_id: categories[2].id, user_id: users[11].id},
+          {title: 'JS', level: 1, category_id: categories[0].id, user_id: users[13].id},
+          {title: 'JS', level: 2, category_id: categories[1].id, user_id: users[12].id},
+          {title: 'Java', level: 2, category_id: categories[1].id, user_id: users[4].id},
+          {title: 'Java', level: 3, category_id: categories[2].id, user_id: users[3].id},
+          {title: 'Python', level: 1, category_id: categories[0].id, user_id: users[9].id},
+          {title: 'Python', level: 2, category_id: categories[1].id, user_id: users[4].id},
+          {title: 'Go', level: 2, category_id: categories[1].id, user_id: users[4].id},
+          {title: 'Go', level: 3, category_id: categories[2].id, user_id: users[5].id}
                     ])
                     
 questions = Question.create!([
@@ -80,3 +80,4 @@ usertests = UserTest.create!([
           {user_id: users[0].id, test_id: tests[0].id},
           {user_id: users[0].id, test_id: tests[0].id},
           {user_id: users[1].id, test_id: tests[0].id}])
+#=end
