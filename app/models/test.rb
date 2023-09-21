@@ -1,7 +1,7 @@
 class Test < ApplicationRecord
   belongs_to :category
   has_many :questions
-
+  belongs_to :author, class_name: 'User', foreign_key: :user_id
   # Две has_many ниже на замену has_and_belongs_to_many :users
   # has_and_belongs_to_many :users хочет таблицу tests_users,
   # однако я решил использовать уже созданную таблицу user_tests.

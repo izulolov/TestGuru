@@ -5,6 +5,8 @@ class User < ApplicationRecord
   # однако я решил использовать уже созданную таблицу user_tests.
   has_many :user_tests
   has_many :tests, through: :user_tests
+  has_many :author_tests, class_name: 'Test'
+  
   # has_and_belongs_to_many :tests
 
   # Тесты по уровню
