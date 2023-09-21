@@ -9,8 +9,11 @@ class User < ApplicationRecord
   
   # has_and_belongs_to_many :tests
 
+  # scope на замену метода tests_by_level
+  scope :test_by_level, ->(test_level) { tests.where(level: test_level) }
+
   # Тесты по уровню
-  def tests_by_level(test_level)
-    tests.where(level: test_level)
-  end
+  #def tests_by_level(test_level)
+  #  tests.where(level: test_level)
+  #end
 end

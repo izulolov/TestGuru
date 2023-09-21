@@ -20,11 +20,19 @@ class Test < ApplicationRecord
       where(level: (5..Float::INFINITY))
     end }
 
-  # Сортировать по категории
-  def self.sort_categories(category)
+  # Скоуп на замену метода класса
+  scope :sort_categories, ->(category) {
     Test.joins('JOIN categories ON categories.id=tests.category_id')
     .where('categories.title =?', category)
     .order('tests.title DESC')
     .pluck(:title)
-  end
+  }
+
+  # Сортировать по категории
+  #def self.sort_categories(category)
+  #  Test.joins('JOIN categories ON categories.id=tests.category_id')
+  #  .where('categories.title =?', category)
+  #  .order('tests.title DESC')
+  #  .pluck(:title)
+  #end
 end
