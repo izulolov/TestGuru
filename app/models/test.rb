@@ -9,6 +9,17 @@ class Test < ApplicationRecord
   has_many :users, through: :user_tests
   # has_and_belongs_to_many :users
 
+  # Для выбора Тестов по уровню сложности:
+  scope :test_by_level, ->(level) {
+    case level.downcase
+    when 'easy'
+      where(level: (0..1))
+    when 'middle'
+      where(level: (2..4))
+    when 'difficult'
+      where(level: (5..Float::INFINITY))
+    end }
+
   # Сортировать по категории
   def self.sort_categories(category)
     Test.joins('JOIN categories ON categories.id=tests.category_id')
