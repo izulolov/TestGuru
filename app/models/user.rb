@@ -6,8 +6,8 @@ class User < ApplicationRecord
   has_many :user_tests
   has_many :tests, through: :user_tests
   has_many :author_tests, class_name: 'Test'
-  
   # has_and_belongs_to_many :tests
+
 
   # scope на замену метода tests_by_level
   scope :test_by_level, ->(test_level) { tests.where(level: test_level) }

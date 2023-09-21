@@ -9,6 +9,8 @@ class Test < ApplicationRecord
   has_many :users, through: :user_tests
   # has_and_belongs_to_many :users
 
+  validates :title, presence: true
+  
   # Для выбора Тестов по уровню сложности:
   scope :test_by_level, ->(level) {
     case level.downcase
