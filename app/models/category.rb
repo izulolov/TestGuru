@@ -3,6 +3,5 @@ class Category < ApplicationRecord
   validates :title, presence: true
 
   # scope-метод по умолчанию для получения Категорий
-  default_scope {order(title: :asc)}
-
+  default_scope { order(title: :asc) }
 end
