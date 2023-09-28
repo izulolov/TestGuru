@@ -2,17 +2,22 @@ class Test < ApplicationRecord
   belongs_to :category
   has_many :questions
   belongs_to :author, class_name: 'User', foreign_key: :user_id
-  # Две has_many ниже на замену has_and_belongs_to_many :users
-  # has_and_belongs_to_many :users хочет таблицу tests_users,
-  # однако я решил использовать уже созданную таблицу user_tests.
   has_many :user_tests
   has_many :users, through: :user_tests
-  # has_and_belongs_to_many :users
 
-  # Сортировать по категории
-  def self.sort_categories(category)
-    Test.joins('JOIN categories ON categories.id=tests.category_id')
-    .where('categories.title =?', category)
+  validates :title, presence: true, uniqueness: { scope: :level }
+  validates :level, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
+
+  scope :easy, -> { where(level: (0..1)) }
+  scope :middle, -> { where(level: (2..4)) }
+  scope :difficult, -> { where(level: (5..Float::INFINITY)) }
+  scope :sort_by_categories, ->(category) {
+    joins(:category)
+    .where(categories: { title: category })
+  }
+
+  def self.sort_test_name_by_category(category)
+    sort_by_categories(category)
     .order('tests.title DESC')
     .pluck(:title)
   end
