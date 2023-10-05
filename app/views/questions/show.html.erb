@@ -1,4 +1,7 @@
 <p><%= @question.body %> </p>
+
+<%= button_to'Удалить вопрос', method: "delete", data: { confirm: 'Are you sure?' }s %>
+
 <br>
   <li><%= link_to "Destroy", tests_path(@questions), data: {
                     method: :delete,
