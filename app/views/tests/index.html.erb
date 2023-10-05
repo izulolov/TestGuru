@@ -1,0 +1,9 @@
+<h1>Все тесты в нашей системы</h1>
+
+<ul>
+  <% @tests.each do |test| %>
+    <li>
+      Тест: <%= test.title %>, Уровень: <%= test.level %> 
+    </li>
+  <% end %>
+</ul>

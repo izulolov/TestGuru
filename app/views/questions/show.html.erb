@@ -1,0 +1,7 @@
+<p><%= @question.body %> </p>
+<br>
+  <li><%= link_to "Destroy", tests_path(@questions), data: {
+                    method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  } %></li>
+

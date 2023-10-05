@@ -1,5 +1,5 @@
 class QuestionsController < ApplicationController
-  before_action :find_test, only: %i[index new create]
+  before_action :find_test, only: %i[index create new]
   before_action :find_question, only: %i[show]
 
   def index
@@ -7,7 +7,7 @@ class QuestionsController < ApplicationController
   end
 
   def show
-    render inline: 'Вопрос: <%= @question.body %>'
+    
   end
 
   def new
@@ -15,7 +15,14 @@ class QuestionsController < ApplicationController
   end
 
   def create
-    @question = @test.questions.create!(question_params)
+    @test.questions.create!(question_params)
+    redirect_to tests_path
+  end
+
+  def destroy
+    question = Question.find(params[:id])
+    question.destroy
+    redirect_to tests_path
   end
 
   private

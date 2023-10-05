@@ -1,5 +1,5 @@
 class TestsController < ApplicationController
   def index
-    render inline: "<%= Test.all.inspect %>"
+    @tests = Test.all
   end
 end
