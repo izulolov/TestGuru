@@ -1,6 +1,4 @@
-< a><%= @question.body %></>
+<h1> Вопрос: <%= @question.body %></h1>
 
-<table>
-<td><%= button_to 'Удалить вопрос', '', method: :delete, data: { confirm: 'Вы уверены?' } %><td>
-</table>
+<%= button_to 'Удалить вопрос', '', method: :delete, data: { confirm: 'Вы уверены?' } %>
 
