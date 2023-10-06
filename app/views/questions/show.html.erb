@@ -1,10 +1,6 @@
-<p><%= @question.body %> </p>
+< a><%= @question.body %></>
 
-<%= button_to 'Удалить вопрос', method: "delete", data: { confirm: 'Are you sure?' } %>
-
-<br>
-  <li><%= link_to "Удалить вопрос", tests_path(@questions), data: {
-                    turbo_method: :delete,
-                    turbo_confirm: "Are you sure?"
-                  } %></li>
+<table>
+<td><%= button_to 'Удалить вопрос', '', method: :delete, data: { confirm: 'Вы уверены?' } %><td>
+</table>
 

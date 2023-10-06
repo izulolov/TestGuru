@@ -1,4 +1,4 @@
-<h1>Создать новый вопрос для теста "<%= @test.title %>", уровень "<%= @test.level %>" </h1>
+<h2>Тут будем создавать вопрос к тесту <%= @test.title %>, уровень <%= @test.level %>!</h2>
 
 <form action="/tests/<%= params[:test_id] %>/questions" method="post">
   <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
