@@ -1,0 +1,16 @@
+<% if @questions.count.positive? %>
+<h1>Вопросы:</h1>
+
+<ul>
+  <% @questions.each do |question| %>
+    <li>
+      <a><%= question.body %></a>
+    </li>
+  <% end %>
+</ul>
+
+<% else %>
+
+<h1>Этот тест пока пустой!</h1>
+
+<% end %>
