@@ -36,7 +36,7 @@ class QuestionsController < ApplicationController
   # questions#destroy
   # DELETE /tests/:test_id/questions/:id
   def destroy
-    find_question.destroy
+    @question.destroy
     redirect_to root_path
   end
 
