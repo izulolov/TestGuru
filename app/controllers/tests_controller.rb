@@ -10,7 +10,7 @@ class TestsController < ApplicationController
   # GET tests#show
   # /tests/:id
   def show
-
+    
   end
 
   private
