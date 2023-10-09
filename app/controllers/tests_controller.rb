@@ -49,6 +49,14 @@ class TestsController < ApplicationController
     end
   end
 
+  # questions#destroy
+  # DELETE tests/:id
+  def destroy
+    @test = Test.find(params[:id])
+    @test.destroy
+    redirect_to tests_path
+  end
+
   private
 
   def test_params
