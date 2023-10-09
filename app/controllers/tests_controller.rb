@@ -10,7 +10,7 @@ class TestsController < ApplicationController
   # GET tests#show
   # /tests/:id
   def show
-    
+
   end
 
   # GET tests#new
@@ -28,6 +28,24 @@ class TestsController < ApplicationController
       redirect_to @test
     else
       render :new
+    end
+  end
+
+  # GET tests#edit
+  # /tests/:id/edit
+  def edit
+    @test = Test.find(params[:id])
+  end
+
+  # PUT tests#update
+  # /tests/:id
+  def update
+    @test = Test.find(params[:id])
+
+    if @test.update(test_params)
+      redirect_to @test
+    else
+      render :edit
     end
   end
 
