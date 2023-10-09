@@ -1,9 +1,15 @@
-<h1>Все тесты в нашей системe:</h1>
+<h1>All tests are in out system:</h1>
 
-<ul>
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Level</th>
+  </tr>
+
   <% @tests.each do |test| %>
-    <li>
-      Тест: <%= test.title %>, Уровень: <%= test.level %> 
-    </li>
+  <tr>
+    <td><%= test.title %></td>
+    <td><%= test.level %></td>
+  </tr>
   <% end %>
-</ul>
+</table>

@@ -1,16 +1,16 @@
 <% if @test.questions.count.positive? %>
-<h1>Вопросы к тесту <%= @test.title%>, уровень <%= @test.level%>:</h1>
+<h1>Questions for the test <%= @test.title%>, level <%= @test.level%>:</h1>
 
-<ul>
+<tr>
   <% @test.questions.each do |question| %>
-    <li>
-      <a><%= question.body %></a>
-    </li>
+    <td>
+      <p><%= question.body %></p>
+    </td>
   <% end %>
-</ul>
+</tr>
 
 <% else %>
 
-<h1>Этот тест пока пустой!</h1>
+<h1>This test is still empty!</h1>
 
 <% end %>
