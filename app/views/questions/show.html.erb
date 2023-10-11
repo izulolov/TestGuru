@@ -1,3 +1,5 @@
 <h1> Вопрос: <%= @question.body %></h1>
 
 <%= button_to 'Удалить вопрос', '', method: :delete, data: { confirm: 'Вы уверены?' } %>
+
+<%= link_to 'Back', test_questions_path %>
