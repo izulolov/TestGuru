@@ -1,6 +1,6 @@
 class QuestionsController < ApplicationController
   before_action :find_test, only: %i[index new create edit]
-  before_action :find_question, only: %i[show destroy edit]
+  before_action :find_question, only: %i[show destroy edit update]
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
 
@@ -19,7 +19,7 @@ class QuestionsController < ApplicationController
   # questions#new
   # GET /tests/:test_id/questions/new
   def new
-    @question = find_test.questions.new
+    @question = @test.questions.new
   end
 
   # questions#edit
@@ -49,8 +49,7 @@ class QuestionsController < ApplicationController
   # questions#update
   # PATCH /tests/:test_id/questions/:id
   def update
-    question = find_question
-    if question.update(question_params)
+    if @question.update(question_params)
       redirect_to test_questions_path, status: :see_other
     else
       render :edit
