@@ -1,4 +1,4 @@
-<h2>Тут будем создавать вопрос к тесту <%= @test.title %>, уровень <%= @test.level %>!</h2>
+<h1><%= question_header(@question) %></h1>
 
 <%= render 'form' %>
 <%= link_to 'Back', test_questions_path  %>
