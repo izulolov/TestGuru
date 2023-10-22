@@ -1,0 +1,9 @@
+        <tr>
+          <td><%= question.body %></td>
+          <td><%= link_to 'Show', test_question_path(question.test_id, question.id), 
+                                  method: :get  %></td>
+          <td><%= link_to 'Edit', edit_test_question_path(question.test_id, question.id) %></td>
+          <td><%= link_to 'Delete', test_question_path(question.test_id, question.id), 
+                                    method: :delete, 
+                                    data: { confirm: 'Вы уверены?' } %></td>
+        </tr>

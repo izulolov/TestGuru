@@ -1,9 +1,14 @@
-<h1>Все тесты в нашей системe:</h1>
+<h1>All tests are in out system:</h1>
+<p>
+  <%= link_to 'New test', new_test_path %>
+</p>
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Level</th>
+    <th>Number of questions</th>
+    <th colspan="3">Actions</th>
+  </tr>
 
-<ul>
-  <% @tests.each do |test| %>
-    <li>
-      Тест: <%= test.title %>, Уровень: <%= test.level %> 
-    </li>
-  <% end %>
-</ul>
+  <%= render @tests%>
+</table>
