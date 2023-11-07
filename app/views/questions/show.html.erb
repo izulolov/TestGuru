@@ -2,4 +2,4 @@
 
 <%= button_to 'Удалить вопрос', '', method: :delete, data: { confirm: 'Вы уверены?' } %>
 
-<%= link_to 'Back', test_questions_path %>
+<%= link_to 'Back', test_path(@question.test)%>

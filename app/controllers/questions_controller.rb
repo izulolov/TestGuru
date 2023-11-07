@@ -1,5 +1,5 @@
 class QuestionsController < ApplicationController
-  before_action :find_test, only: %i[index new create edit]
+  before_action :find_test, only: %i[index new create]
   before_action :find_question, only: %i[show destroy edit update]
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
@@ -43,14 +43,14 @@ class QuestionsController < ApplicationController
   # DELETE /tests/:test_id/questions/:id
   def destroy
     @question.destroy
-    redirect_to test_questions_path
+    redirect_to test_path(@question.test)
   end
 
   # questions#update
   # PATCH /tests/:test_id/questions/:id
   def update
     if @question.update(question_params)
-      redirect_to test_questions_path, status: :see_other
+      redirect_to test_path(@question.test), status: :see_other
     else
       render :edit
     end
