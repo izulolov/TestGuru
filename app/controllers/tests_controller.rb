@@ -1,26 +1,18 @@
 class TestsController < ApplicationController
   before_action :find_test, only: %i[show edit update destroy]
 
-  # GET tests#index
-  # /tests
   def index
     @tests = Test.all
   end
 
-  # GET tests#show
-  # /tests/:id
   def show
 
   end
 
-  # GET tests#new
-  # /tests/new
   def new
     @test = Test.new
   end
 
-  # POST tests#create
-  # /tests
   def create
     @test = Test.new(test_params)
 
@@ -31,14 +23,10 @@ class TestsController < ApplicationController
     end
   end
 
-  # GET tests#edit
-  # /tests/:id/edit
   def edit
-    
+
   end
 
-  # PUT tests#update
-  # /tests/:id
   def update
     if @test.update(test_params)
       redirect_to @test
@@ -47,8 +35,6 @@ class TestsController < ApplicationController
     end
   end
 
-  # questions#destroy
-  # DELETE tests/:id
   def destroy
     @test.destroy
     redirect_to tests_path
