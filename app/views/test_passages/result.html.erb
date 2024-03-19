@@ -1,1 +1,13 @@
-<h1>The <%= @test_passage.test.title %> Test was Completed!</h1>
+<h1>Test <%= @test_passage.test.title %> test is completed! </h1>
+
+<% if @test_passage.successfully_passed? %>
+  <p>The test <%= @test_passage.test.title %> successfully passed! </p>
+  <p>Your result: <span class="passed"><%= @test_passage.percent_correct %> </span></p>
+<%else%>
+  <p>The test <%= @test_passage.test.title %> is not passed! </p>
+  <p>Number of questions: <%= @test_passage.count_questions %>, you answered correctly <%= @test_passage.correct_questions %> </p>
+  <p>Your result: <span class="not-passed"><%= @test_passage.percent_correct %> </span></p>
+<%end%>
+
+<p>Do you want to try again? <%= link_to 'Try again!', tests_path %> </p>
+<%= link_to 'Go back to the test selection', tests_path %>
