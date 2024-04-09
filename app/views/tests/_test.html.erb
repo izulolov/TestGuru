@@ -1,7 +1,8 @@
   <tr>
     <td><%= test.title %></td>
     <td><%= test_level(test) %></td>
-    <td><%= test_questions_number(test) %></td>
+    <td class="center"><%= test_questions_number(test) %></td>
+    <% if logged_in?%>
     <td><%= link_to 'Show', test_path(test) %></td>
     <td><%= link_to 'Edit', edit_test_path(test) %></td>
     <td>
@@ -10,5 +11,7 @@
                 method: :delete,
                 data: { confirm: 'Are you sure?'} %>
     </td>
-    <td><%= button_to 'Start', start_test_path(test)%></td>
+    <%else%>
+      <td><%= button_to 'Start', start_test_path(test), data: { confirm: 'Please log in first'} %></td>
+    <%end%>
   </tr>
