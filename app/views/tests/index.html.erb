@@ -1,7 +1,12 @@
 <h1>All tests are in out system:</h1>
+
+<% if logged_in? %>
 <p>
   <%= link_to 'New test', new_test_path %>
 </p>
+<% else %>
+  <p><%= link_to 'New test', new_test_path, data: { confirm: 'Please log in first'} %></p>
+<% end %>
 <table>
   <tr>
     <th>Title</th>
