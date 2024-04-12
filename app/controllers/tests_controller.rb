@@ -1,6 +1,5 @@
 class TestsController < ApplicationController
 
-  #before_action :authenticate_user!, except: %i[index]
   before_action :find_test, only: %i[show edit update destroy start]
 
   def index
