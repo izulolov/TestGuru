@@ -20,8 +20,6 @@ class SessionsController < ApplicationController
 
   # 3
   def destroy
-    #session.delete(:user_id)
-    #@current_user = nil
     reset_session
     redirect_to root_path, notice: 'You have logged out of the site'
   end

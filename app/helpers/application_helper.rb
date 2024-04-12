@@ -10,6 +10,6 @@ module ApplicationHelper
 
   # 2
   def flash_message(key)
-    content_tag :p, flash[key]
+    content_tag :p, flash[key], class: 'flash-alert'
   end
 end
