@@ -9,7 +9,7 @@ module ApplicationHelper
   end
 
   # 2
-  def flash_message
-    content_tag :p, flash[:alert]
+  def flash_message(key)
+    content_tag :p, flash[key]
   end
 end

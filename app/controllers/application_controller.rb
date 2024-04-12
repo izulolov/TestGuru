@@ -1,12 +1,14 @@
 class ApplicationController < ActionController::Base
   #protect_from_forgery with: :null_session
 
+  before_action :authenticate_user!
+  
   helper_method :current_user,
                 :logged_in?
   private
 
   def authenticate_user!
-    cookies[:path] = request.fullpath
+    cookies[:request_path] = request.fullpath
     unless current_user
       return redirect_to login_path, alert: 'Are you a Guru? Verify your Email and Password please'
     end
