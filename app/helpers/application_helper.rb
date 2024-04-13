@@ -9,7 +9,7 @@ module ApplicationHelper
   end
 
   # 2
-  def flash_message(key)
-    content_tag :p, flash[key], class: 'flash-alert'
+  def flash_message
+    render 'shared/flash' if flash.present?
   end
 end

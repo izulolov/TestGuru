@@ -1,4 +1,5 @@
 <%= form_with model: @user, local: true do |form| %>
+  <div> <%= flash_message %> </div>
   <%= render 'shared/errors', resource: @user %>
 
   <p>
