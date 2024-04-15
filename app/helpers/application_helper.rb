@@ -1,7 +1,6 @@
 module ApplicationHelper
-
   def current_year
-    "Дата и Время #{Time.now.strftime("%d-%m-%y %H:%M:%S")}"
+    "Дата и Время #{Time.now.strftime('%d-%m-%y %H:%M:%S')}"
   end
 
   def github_url(name_repo, url_path)
@@ -10,6 +9,6 @@ module ApplicationHelper
 
   # 2
   def flash_message
-    render 'shared/flash' if flash.present?
+    flash.map { |key, msg| content_tag(:p, msg, class: "flash #{key}") }.join.html_safe if flash.present?
   end
 end
