@@ -1,0 +1,20 @@
+.flash{
+  border: 1px, solid;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.flash.alert {
+  background-color: #1ce5ec;
+  color: rgb(2, 2, 2)
+}
+
+.flash.notice {
+  background-color: #3fec1c;
+  color: rgb(2, 2, 2)
+}
+
+.flash.error {
+  background-color: #ec341c;
+  color: rgb(2, 2, 2)
+}

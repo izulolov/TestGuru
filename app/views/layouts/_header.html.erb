@@ -1,15 +1,15 @@
     <header>
-      <div class="logo">
-        <a href="/">
-          <img src="https://bureau.ru/soviet/130568/files/logo.svg" width="60" height="60px" />
-        </a>
-      </div>
       <nav class="menu">
         <ul>
-          <li><a href="#">Главная</a></li>
-          <li><a href="#">Все тесты</a></li>
-          <li><a href="#">О проекте</a></li>
-          <li><a href="#">Вход</a></li>
+          <%= link_to 'TestGuru', root_path %>
+          <%= link_to 'Все тесты', tests_path %>
+          <a href="#">О проекте</a>
+          <%if logged_in?%>
+            <a><%= link_to 'Выход', logout_path, method: :delete, data: { confirm: 'Вы уверены?' } %></a>
+          <%else%>
+            <a><%= link_to 'Регистрация', signup_path %></a>
+            <a><%= link_to 'Войти', login_path %></a>
+          <%end%>
         </ul>
       </nav>
     </header>
