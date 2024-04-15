@@ -1,20 +1,26 @@
+require 'digest/sha1'
+
 class User < ApplicationRecord
+  
+  #include Auth
+
   has_many :test_passages
   has_many :tests, through: :test_passages
-  
-  #has_many :user_tests
-  #has_many :tests, through: :user_tests
-  
   has_many :author_tests, class_name: 'Test'
 
-  validates :name, :email, presence: true
+  validates :name, presence: true
+  validates :email, presence: true, uniqueness: true,
+            format: { with: URI::MailTo::EMAIL_REGEXP, 
+            message: 'Формат почты: example@guru.ru' }
+
+  has_secure_password
 
   def tests_by_level(test_level)
     tests.where(level: test_level)
   end
 
-  #
   def test_passage(test)
     test_passages.order(id: :desc).find_by(test_id: test.id)
   end
+
 end
