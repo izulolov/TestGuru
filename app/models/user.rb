@@ -6,7 +6,7 @@ class User < ApplicationRecord
           :recoverable,
           :rememberable,
           :trackable,
-          :validatable
+          :validatable,
           :confirmable
 
   #include Auth
