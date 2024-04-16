@@ -6,20 +6,20 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 #=begin
-users = User.create!([{name: 'Ikbol', score: 0, email: 'izulolov@mail.ru'},
-          {name: 'Artem', score: 0, email: 'artem@mail.ru'},
-          {name: 'Dmitry', score: 0, email: 'dmitry3@mail.ru'},
-          {name: 'Aleksey', score: 0, email: 'aleksey@mail.ru'},
-          {name: 'Dmitry', score: 0, email: 'dmitry5@mail.ru'},
-          {name: 'Anton', score: 0, email: 'anton@mail.ru'},
-          {name: 'Petr', score: 0, email: 'petr@mail.ru'},
-          {name: 'Ivan', score: 0, email: 'ivan@mail.ru'},
-          {name: 'Sergey', score: 0, email: 'sergey@mail.ru'},
-          {name: 'Maksim', score: 0, email: 'maksim@mail.ru'},
-          {name: 'Anastasia', score: 0, email: 'anastasia@mail.ru'},
-          {name: 'Elena', score: 0, email: 'elena@mail.ru'},
-          {name: 'Svetlana', score: 0, email: 'svetlana@mail.ru'},
-          {name: 'Marina', score: 0, email: 'marina@mail.ru'}
+users = User.create!([{name: 'Ikbol', email: 'izulolov@mail.ru', password: '123456'},
+          {name: 'Artem', email: 'artem@mail.ru', password: '123456'},
+          {name: 'Dmitry', email: 'dmitry3@mail.ru', password: '123456'},
+          {name: 'Aleksey', email: 'aleksey@mail.ru', password: '123456'},
+          {name: 'Dmitry', email: 'dmitry5@mail.ru', password: '123456'},
+          {name: 'Anton', email: 'anton@mail.ru', password: '123456'},
+          {name: 'Petr', email: 'petr@mail.ru', password: '123456'},
+          {name: 'Ivan', email: 'ivan@mail.ru', password: '123456'},
+          {name: 'Sergey', email: 'sergey@mail.ru', password: '123456'},
+          {name: 'Maksim', email: 'maksim@mail.ru', password: '123456'},
+          {name: 'Anastasia', email: 'anastasia@mail.ru', password: '123456'},
+          {name: 'Elena', email: 'elena@mail.ru', password: '123456'},
+          {name: 'Svetlana', email: 'svetlana@mail.ru', password: '123456'},
+          {name: 'Marina', email: 'marina@mail.ru', password: '123456'}
             ])
 categories = Category.create!([
           {title: 'Junior'},
@@ -83,7 +83,7 @@ answers = Answer.create!([
           {body: 'Обозначает что переменная без явного типа данных', correct: true, question_id: questions[5].id}
           ])
 
-usertests = UserTest.create!([
+usertests = TestPassage.create!([
           {user_id: users[0].id, test_id: tests[0].id},
           {user_id: users[1].id, test_id: tests[8].id},
           {user_id: users[3].id, test_id: tests[0].id},
