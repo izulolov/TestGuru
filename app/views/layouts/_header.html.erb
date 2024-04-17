@@ -4,12 +4,12 @@
           <%= link_to 'TestGuru', root_path %>
           <%= link_to 'Все тесты', tests_path %>
           <a href="#">О проекте</a>
-          <%#if logged_in?%>
-            <a><%#= link_to 'Выход', logout_path, method: :delete, data: { confirm: 'Вы уверены?' } %></a>
-          <%#else%>
-            <a><%#= link_to 'Регистрация', signup_path %></a>
-            <a><%#= link_to 'Войти', login_path %></a>
-          <%#end%>
+          <%if user_signed_in? %>
+            <a><%= link_to 'Выход', destroy_user_session_path, method: :delete, data: { confirm: 'Вы уверены?' } %></a>
+          <%else%>
+            <a><%= link_to 'Регистрация', new_user_registration_path %></a>
+            <a><%= link_to 'Войти', new_user_session_path %></a>
+          <%end%>
         </ul>
       </nav>
     </header>
