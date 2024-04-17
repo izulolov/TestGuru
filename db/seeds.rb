@@ -5,21 +5,11 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-=begin
-users = User.create!([{name: 'Ikbol', email: 'izulolov@mail.ru', password: '123456'},
-          {name: 'Artem', email: 'artem@mail.ru', password: '123456'},
-          {name: 'Dmitry', email: 'dmitry3@mail.ru', password: '123456'},
-          {name: 'Aleksey', email: 'aleksey@mail.ru', password: '123456'},
-          {name: 'Dmitry', email: 'dmitry5@mail.ru', password: '123456'},
-          {name: 'Anton', email: 'anton@mail.ru', password: '123456'},
-          {name: 'Petr', email: 'petr@mail.ru', password: '123456'},
-          {name: 'Ivan', email: 'ivan@mail.ru', password: '123456'},
-          {name: 'Sergey', email: 'sergey@mail.ru', password: '123456'},
-          {name: 'Maksim', email: 'maksim@mail.ru', password: '123456'},
-          {name: 'Anastasia', email: 'anastasia@mail.ru', password: '123456'},
-          {name: 'Elena', email: 'elena@mail.ru', password: '123456'},
-          {name: 'Svetlana', email: 'svetlana@mail.ru', password: '123456'},
-          {name: 'Marina', email: 'marina@mail.ru', password: '123456'}
+#=begin
+users = User.create!([{first_name: 'Ikbol', last_name: 'Zulolov', email: 'izulolov@mail.ru', password: '123456'},
+          {first_name: 'Artem',last_name: 'Lebedev', email: 'artem@mail.ru', password: '123456'},
+          {first_name: 'Sergey',last_name: 'Larionov', email: 'sergey@mail.ru', password: '123456'},
+          {first_name: 'Mikel',last_name: 'Pronin', email: 'mikel@mail.ru', password: '123456'},
             ])
 categories = Category.create!([
           {title: 'Junior'},
@@ -28,27 +18,27 @@ categories = Category.create!([
           ])
 
 tests = Test.create!([
-          {title: 'Ruby', level: 1, category_id: categories[0].id, user_id: users[13].id},
-          {title: 'Ruby', level: 2, category_id: categories[1].id, user_id: users[9].id},
-          {title: 'Ruby', level: 3, category_id: categories[2].id, user_id: users[10].id},
-          {title: 'HTML', level: 1, category_id: categories[0].id, user_id: users[7].id},
-          {title: 'HTML', level: 2, category_id: categories[1].id, user_id: users[8].id},
-          {title: 'CSS', level: 6, category_id: categories[0].id, user_id: users[8].id},
+          {title: 'Ruby', level: 1, category_id: categories[0].id, user_id: users[1].id},
+          {title: 'Ruby', level: 2, category_id: categories[1].id, user_id: users[2].id},
+          {title: 'Ruby', level: 3, category_id: categories[2].id, user_id: users[2].id},
+          {title: 'HTML', level: 1, category_id: categories[0].id, user_id: users[2].id},
+          {title: 'HTML', level: 2, category_id: categories[1].id, user_id: users[3].id},
+          {title: 'CSS', level: 6, category_id: categories[0].id, user_id: users[1].id},
           {title: 'CSS', level: 2, category_id: categories[1].id, user_id: users[2].id},
           {title: 'SQL', level: 1, category_id: categories[0].id, user_id: users[3].id},
-          {title: 'C#', level: 1, category_id: categories[0].id, user_id: users[1].id},
-          {title: 'C#', level: 2, category_id: categories[1].id, user_id: users[3].id},
-          {title: 'C#', level: 3, category_id: categories[2].id, user_id: users[7].id},
-          {title: 'C++', level: 5, category_id: categories[0].id, user_id: users[11].id},
-          {title: 'C++', level: 3, category_id: categories[2].id, user_id: users[11].id},
-          {title: 'JS', level: 1, category_id: categories[0].id, user_id: users[13].id},
-          {title: 'JS', level: 4, category_id: categories[1].id, user_id: users[12].id},
-          {title: 'Java', level: 2, category_id: categories[1].id, user_id: users[4].id},
-          {title: 'Java', level: 3, category_id: categories[2].id, user_id: users[3].id},
-          {title: 'Python', level: 1, category_id: categories[0].id, user_id: users[9].id},
-          {title: 'Python', level: 2, category_id: categories[1].id, user_id: users[4].id},
-          {title: 'Go', level: 4, category_id: categories[1].id, user_id: users[4].id},
-          {title: 'Go', level: 3, category_id: categories[2].id, user_id: users[5].id}
+          {title: 'C#', level: 1, category_id: categories[0].id, user_id: users[2].id},
+          {title: 'C#', level: 2, category_id: categories[1].id, user_id: users[2].id},
+          {title: 'C#', level: 3, category_id: categories[2].id, user_id: users[1].id},
+          {title: 'C++', level: 5, category_id: categories[0].id, user_id: users[0].id},
+          {title: 'C++', level: 3, category_id: categories[2].id, user_id: users[1].id},
+          {title: 'JS', level: 1, category_id: categories[0].id, user_id: users[1].id},
+          {title: 'JS', level: 4, category_id: categories[1].id, user_id: users[2].id},
+          {title: 'Java', level: 2, category_id: categories[1].id, user_id: users[2].id},
+          {title: 'Java', level: 3, category_id: categories[2].id, user_id: users[1].id},
+          {title: 'Python', level: 1, category_id: categories[0].id, user_id: users[2].id},
+          {title: 'Python', level: 2, category_id: categories[1].id, user_id: users[2].id},
+          {title: 'Go', level: 4, category_id: categories[1].id, user_id: users[2].id},
+          {title: 'Go', level: 3, category_id: categories[2].id, user_id: users[0].id}
                     ])
                     
 questions = Question.create!([
@@ -87,9 +77,9 @@ usertests = TestPassage.create!([
           {user_id: users[0].id, test_id: tests[0].id},
           {user_id: users[1].id, test_id: tests[8].id},
           {user_id: users[3].id, test_id: tests[0].id},
-          {user_id: users[7].id, test_id: tests[0].id},
-          {user_id: users[11].id, test_id: tests[8].id},
-          {user_id: users[12].id, test_id: tests[0].id},
-          {user_id: users[0].id, test_id: tests[8].id},
-          {user_id: users[1].id, test_id: tests[0].id}])
-=end
+          {user_id: users[2].id, test_id: tests[0].id},
+          {user_id: users[1].id, test_id: tests[8].id},
+          {user_id: users[2].id, test_id: tests[0].id},
+          {user_id: users[1].id, test_id: tests[8].id},
+          {user_id: users[0].id, test_id: tests[0].id}])
+#=end

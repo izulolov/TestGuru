@@ -14,7 +14,7 @@
     <%= render 'layouts/header'%>
     <% if user_signed_in? %>
       <p class="nav user">
-        Welcome, <b><%= current_user.email %></b> Guru
+        Hello, <b><%= current_user.first_name %>!</b>
       </p>
     <% end %>
     <div class="container">
