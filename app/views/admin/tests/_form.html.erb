@@ -1,4 +1,4 @@
-<%= form_with model: @test do |form| %>
+<%= form_with model: [:admin, @test], local: true do |form| %>
   <%= render 'shared/errors', resource: @test %>
 
   <p>
@@ -17,8 +17,8 @@
   </p>
   
   <p>
-    <%= form.label :user_id, 'User:' %><br>
-    <%= form.collection_select :user_id, User.all, :id, :name, prompt: true %>
+    <%= form.label :user_id, 'Admin:' %><br>
+    <%= form.collection_select :user_id, Admin.all, :id, :last_name, prompt: true %>
   </p>
 
   <p><%= form.submit %></p>

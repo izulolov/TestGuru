@@ -1,0 +1,7 @@
+<ol>
+<%= render partial: 'questions/question', collection: @test.questions %>
+</ol>
+<%= link_to 'Back', admin_tests_path %>
+<%= link_to 'Edit test', edit_admin_test_path(@test) %>
+<%= link_to 'Add question', new_test_question_path(@test)  %>
+<%= link_to 'Edit questions', test_questions_path(@test)  %>

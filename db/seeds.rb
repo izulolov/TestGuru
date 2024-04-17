@@ -5,7 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-#=begin
+=begin
 users = User.create!([{first_name: 'Ikbol', last_name: 'Zulolov', email: 'izulolov@mail.ru', password: '123456'},
           {first_name: 'Artem',last_name: 'Lebedev', email: 'artem@mail.ru', password: '123456'},
           {first_name: 'Sergey',last_name: 'Larionov', email: 'sergey@mail.ru', password: '123456'},
@@ -82,4 +82,4 @@ usertests = TestPassage.create!([
           {user_id: users[2].id, test_id: tests[0].id},
           {user_id: users[1].id, test_id: tests[8].id},
           {user_id: users[0].id, test_id: tests[0].id}])
-#=end
+=end

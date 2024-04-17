@@ -32,12 +32,12 @@ class QuestionsController < ApplicationController
 
   def destroy
     @question.destroy
-    redirect_to test_path(@question.test)
+    redirect_to admin_test_path(@question.test)
   end
 
   def update
     if @question.update(question_params)
-      redirect_to test_path(@question.test), status: :see_other
+      redirect_to admin_test_path(@question.test), status: :see_other
     else
       render :edit
     end
