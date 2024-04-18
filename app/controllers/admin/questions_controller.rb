@@ -1,4 +1,4 @@
-class QuestionsController < ApplicationController
+class Admin::QuestionsController < Admin::BaseController
   
   before_action :find_test, only: %i[index new create]
   before_action :find_question, only: %i[show destroy edit update]
@@ -24,7 +24,7 @@ class QuestionsController < ApplicationController
   def create
     question = @test.questions.new(question_params)
     if question.save
-      redirect_to test_questions_path, status: :see_other
+      redirect_to admin_test_questions_path, status: :see_other
     else
       render plain: question.errors.inspect
     end
