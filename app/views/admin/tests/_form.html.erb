@@ -15,11 +15,6 @@
     <%= form.label :category_id, 'Categoty:' %><br>
     <%= form.collection_select :category_id, Category.all, :id, :title, prompt: true %>
   </p>
-  
-  <p>
-    <%= form.label :user_id, 'Admin:' %><br>
-    <%= form.collection_select :user_id, Admin.all, :id, :last_name, prompt: true %>
-  </p>
 
   <p><%= form.submit %></p>
 <% end %>
