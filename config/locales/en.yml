@@ -32,6 +32,24 @@
 en:
   hello: "Hello world"
 
+  helpers:
+    submit:
+      test:
+        create: "Create Test"
+        update: "Update Test"
+    label:
+      test:
+        title: "Title"
+        level: "Level"
+        category_id: "Category"
+
   tests:
     index:
       header: "All tests"
+
+  admin:
+    tests:
+      create:
+        success: "Test successfuly created"
+      index:
+        header: "All tests are in out system:"

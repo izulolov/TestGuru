@@ -1,6 +1,5 @@
-<h1>All tests are in out system:</h1>
+<h1><%= t('.header') %></h1>
 <% if user_signed_in? %>
-<p>
   <%= link_to 'New test', new_admin_test_path %>
 </p>
 <% else %>
