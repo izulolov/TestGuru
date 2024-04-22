@@ -7,8 +7,8 @@
           <%if user_signed_in? %>
             <a><%= link_to 'Выход', destroy_user_session_path, method: :delete, data: { confirm: 'Вы уверены?' } %></a>
           <%else%>
-            <a><%= link_to 'Регистрация', new_user_registration_path %></a>
-            <a><%= link_to 'Войти', new_user_session_path %></a>
+           <%= link_to 'Регистрация', new_user_registration_path %>
+           <%= link_to 'Войти', new_user_session_path %>
           <%end%>
         </ul>
       </nav>
