@@ -12,10 +12,13 @@
 
   <body>
     <%= render 'layouts/header'%>
-    <% if logged_in? %>
-      <p class="nav user">Welcome, <b><%= current_user.email %></b> Guru</p>
+    <% if user_signed_in? %>
+      <p class="nav user">
+        Hello, <b><%= current_user.first_name %>!</b>
+      </p>
     <% end %>
     <div class="container">
+      <%= flash_message %>
       <%= yield %>
     </div>
     <%= render 'layouts/footer'%>
