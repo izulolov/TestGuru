@@ -5,6 +5,14 @@ ru:
     index:
       header: "Доступные тесты"
 
+  tests_mailer:
+    completed_test:
+      subject: "Вы успешно завершили тест на TestGuru!"
+  
+  test_passages:
+    result:
+      header: "Тест %{title} успешно завершен!"
+
   helpers:
     submit:
       test:
@@ -15,6 +23,14 @@ ru:
         title: "Название"
         level: "Уровень"
         category_id: "Категория"
+
+  shared:
+    errors:
+      header:
+        few: "Обнаружено %{count} ошибки"
+        many: "Обнаружено %{count} ошибок"
+        one: "Обнаружено %{count} ошибка"
+        other: "Обнаружено %{count} ошибки"
 
   admin:
     tests:
