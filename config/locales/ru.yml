@@ -1,0 +1,6 @@
+ru:
+  hello: "Hello world"
+
+  tests:
+    index:
+      header: "Доступные тесты"
