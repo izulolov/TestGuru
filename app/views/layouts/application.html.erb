@@ -17,10 +17,8 @@
         Hello, <b><%= current_user.first_name %>!</b>
       </p>
     <% end %>
-    <div class="container">
       <%= flash_message %>
       <%= yield %>
-    </div>
     <%= render 'layouts/footer'%>
   </body>
 </html>

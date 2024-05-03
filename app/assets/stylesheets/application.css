@@ -15,66 +15,126 @@
  */
 
  /*Шапка*/
- header {
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: flex-start;
-  align-items: center;
-}
 
-.logo {
-  margin-right: 30px;
-}
-
-.menu {
-  flex-grow: 1;
-}
-
-.menu ul {
-  display: flex;
-  flex-flow: row nowrap;
-  margin: 2px 0 0;
-  padding: 0;
-  font-size: 16px;
-  line-height: 18px;
-  list-style: none;
-}
-
-.menu li {
-  margin-right: 20px;
-}
-
-.menu li:last-child {
-  margin-right: 0;
-}
-
-.menu a,
-.menu .active {
-  display: block;
-  padding: 8px 10px;
-  text-transform: uppercase;
-  letter-spacing: .27em;
-}
-
-.menu a {
-  color: #000;
-  text-decoration: none;
-}
-
- /*Footer*/
-.wrapper {
-  display: flex;
-  border: 1px solid blue;
+body {
+  margin: 0;
+  background-color: rgb(242, 245, 244);
   min-height: 100%;
 }
-.block {
-  display: inline-block;
-  margin: 2px;
-  width: 100%;
-  height: 100%;
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  background-color: rgb(65, 144, 209);
+  padding: 20px 30px;
+  box-sizing: border-box;
+}
+
+table {
+  border-collapse: collapse;
+  /*убираем пустые промежутки между ячейками*/
+  border: 1px solid grey;
+  /*устанавливаем для таблицы внешнюю границу серого цвета толщиной 1px*/
+  width: 600px;
+  margin: 10px;
+}
+
+td, tr {
+  border: 1px solid rgb(44, 128, 206);
+  width: 30%;
+}
+
+.tablestyle button {
+  height: 25px;
+  width: 60px;
+  font-size: 15px;
+}
+
+.container a {
+  float: left;
+  color: rgb(255, 255, 255);
+  text-align: center;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px;
+  line-height: 25px;
+  border-radius: 4px;
+  text-decoration: underline;
+}
+
+.container a:hover{
+  color: rgb(5, 5, 5)
+}
+
+.container img {
+  width: 50px;
+}
+
+.container a.logo {
+  font-size: 25px;
+  padding: 0 !important;
+}
+
+.content{
   text-align: center;
 }
 
-.href-color{
-  color: black;
+.informtextdiv p{
+  font-size: 30px;
+  margin: 0;
+  font-weight: bold;
+}
+
+.main-div-table{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  font-size: 18px;
+  line-height: 25px;
+  border-radius: 4px;
+}
+
+.header-table{
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+.footer-container{
+  display: flex;
+  justify-content: space-between;
+  background-color: rgb(65, 144, 209);
+  padding: 20px 30px;
+  box-sizing: border-box;
+}
+
+.left-footer-a, .right-footer-a, .center-footer {
+  float: left;
+  color: rgb(255, 255, 255);
+  text-align: center;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px;
+  line-height: 25px;
+  border-radius: 4px;
+
+}
+
+.right-footer-a{
+  text-decoration: underline;
+}
+
+.footer-container a:visited{
+  color: rgb(14, 14, 15);
+}
+
+.center-footer a:hover{
+  color: aliceblue;
+}
+
+.right-footer a:hover{
+  color: aliceblue;
+}
+
+.devisenew{
+  margin-left: 20px;
 }

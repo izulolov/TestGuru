@@ -1,17 +1,36 @@
 ru:
-  hello: "Hello world"
+  hello: "Привет Мир!"
 
+  layouts:
+    header:
+      alltests: "Все тесты"
+      aboutproject: "О проекте"
+      exit: "Выйти"
+      signup: "Регистарция"
+      signin: "Войти"
+    
+    footer:
+      datatime: "Дата и время"
+      author: "Автор: Зулолов И.М"
+      eduproject: "Учебный проект в школе Thinknetica"
   tests:
     index:
       header: "Доступные тесты"
+    test:
+      start: "Начать"
 
   tests_mailer:
     completed_test:
       subject: "Вы успешно завершили тест на TestGuru!"
   
   test_passages:
-    result:
-      header: "Тест %{title} успешно завершен!"
+    show:
+      header: "Вы проходите тест:"
+      question_number: "Количество вопросов в тесте: %{questions_count}"
+      question_position: "Вопрос номер %{question_position}"
+      next_question: "Следующий вопрос"
+      back: "Выйти из теста"
+      back_confirmation: "Прервать выполнение теста и вернутся в главную страницу?"
 
   helpers:
     submit:

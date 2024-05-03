@@ -3,9 +3,19 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
 .passed {
+  font-weight: bold;
   color: green
 }
 
 .not-passed {
+  font-weight: bold;
   color: red
+}
+
+.resulttestpass{
+  margin-left: 20px;
+}
+
+.testpasscontainer{
+  margin-left: 20px;
 }

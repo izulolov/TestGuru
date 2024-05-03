@@ -1,12 +1,17 @@
-<h1><%= t('tests.index.header') %></h1>
+<main class="content">
+  <div class="informtextdiv">
+    <p><%= t('tests.index.header') %></p>
+  </div>
 
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Level</th>
-    <th>Number of questions</th>
-    <th>Actions</th>
-  </tr>
-
-    <%= render @tests %>
-</table>
+  <div class="main-div-table">
+    <table class="tablestyle">
+      <tr>
+        <td>Test</td>
+        <td>Level</td>
+        <td>Number of questions</td>
+        <td>Actions</td>
+      </tr>
+      <%= render @tests %>
+    </table>
+  </div>
+</main>

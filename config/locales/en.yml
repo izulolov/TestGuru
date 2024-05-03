@@ -43,6 +43,17 @@ en:
         level: "Level"
         category_id: "Category"
 
+  layouts:
+    header:
+      alltests: "All tests"
+      aboutproject: "About project"
+      exit: "Exit"
+      signup: "Sign up"
+      signin: "Sign in"
+    footer:
+      datatime: "Date and time"
+      author: "Author: I.M. Zulolov"
+      eduproject: "Educational project at the Thinknetica school"
   shared:
     errors:
       header:
@@ -52,6 +63,8 @@ en:
   tests:
     index:
       header: "All tests"
+    test:
+      start: "Start"
 
   tests_mailer:
     completed_test:

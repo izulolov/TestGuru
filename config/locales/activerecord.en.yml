@@ -6,7 +6,7 @@ en:
     attributes:
       test:
         title: "Title"
-
+    
     errors:
       messages:
         blank: "can't be blank"
