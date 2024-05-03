@@ -63,17 +63,35 @@ en:
   tests:
     index:
       header: "All tests"
+      title: "Title"
+      level: "Level"
+      number_of_questions: "Number of questions"
+      action: "Action"
     test:
       start: "Start"
-
+      easy: "Easy"
+      elementary: "Elementary"
+      advanced: "Advanced"
+      hard: "Hard"
+      hero: "Hero"
   tests_mailer:
     completed_test:
       subject: "You just completed the TestGuru test!"
 
   test_passages:
+    show:
+      header: "You are taking the test:"
+      question_number: "The number of questions in the test: %{questions_count}"
+      question_position: "Question number %{question_position}"
+      next_question: "Next question"
+      back: "Exit the test"
+      back_confirmation: "Should abort the test and return to the main page?"
     result:
-      header: "Test %{title} was succesfully completed!"
-
+      header: "The %{title} test has been completed!"
+      success_result: "You answered %{percent} percent of the questions correctly and passed the test successfully!"
+      failure_result: "You answered %{percent} percent of the questions correctly and failed the test!"
+      number_correct_answers: "The number of correct answers %{count}"
+      back: "Go back to the list of tests"
   admin:
     tests:
       create:

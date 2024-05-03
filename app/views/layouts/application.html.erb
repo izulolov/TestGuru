@@ -12,13 +12,8 @@
 
   <body>
     <%= render 'layouts/header'%>
-    <% if user_signed_in? %>
-      <p class="nav user">
-        Hello, <b><%= current_user.first_name %>!</b>
-      </p>
-    <% end %>
       <%= flash_message %>
-      <%= yield %>
-    <%= render 'layouts/footer'%>
+        <%= yield %>
+      <%= render 'layouts/footer'%>
   </body>
 </html>

@@ -16,9 +16,17 @@ ru:
   tests:
     index:
       header: "Доступные тесты"
+      title: "Название"
+      level: "Сложность"
+      number_of_questions: "Число вопросов"
+      action: "Действие"
     test:
       start: "Начать"
-
+      easy: "Нулевой"
+      elementary: "Начальный"
+      advanced: "Свбодный"
+      hard: "Герой"
+      hero: "Ветеран"
   tests_mailer:
     completed_test:
       subject: "Вы успешно завершили тест на TestGuru!"
@@ -31,7 +39,12 @@ ru:
       next_question: "Следующий вопрос"
       back: "Выйти из теста"
       back_confirmation: "Прервать выполнение теста и вернутся в главную страницу?"
-
+    result:
+      header: "Завершен тест по %{title}!"
+      success_result: "Вы правильно ответили на %{percent} процентов вопросов и успешно сдали тест!"
+      failur_result: "Вы правильно ответили на %{percent} процентов вопросов и не сдали тест!"
+      number_correct_answers: "Количество правильных ответов: %{count}"
+      back: "Вернуться к списку тестов"
   helpers:
     submit:
       test:
@@ -42,7 +55,6 @@ ru:
         title: "Название"
         level: "Уровень"
         category_id: "Категория"
-
   shared:
     errors:
       header:
