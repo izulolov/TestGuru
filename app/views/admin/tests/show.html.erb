@@ -1,20 +1,22 @@
-<% if @test.questions.count.positive? %>
-<h1>Questions for the test <%= @test.title%>, level <%= @test.level%>:</h1>
+<div class="admincontent">
+  <% if @test.questions.count.positive? %>
+  <h1><%= t('.header', test_title: @test.title, test_level: @test.level) %>:</h1>
 
-<tr>
-  <% @test.questions.each do |question| %>
-    <td>
-      <p><%= question.body %></p>
-    </td>
+  <tr>
+    <% @test.questions.each do |question| %>
+      <td>
+        <p><%= question.body %></p>
+      </td>
+    <% end %>
+  </tr>
+
+  <% else %>
+
+  <h1><%= t('.if_test_empty') %></h1>
+
   <% end %>
-</tr>
-
-<% else %>
-
-<h1>This test is still empty!</h1>
-
-<% end %>
-<%= link_to 'Back', admin_tests_path %>
-<%= link_to 'Edit test', edit_admin_test_path(@test) %>
-<%= link_to 'Add question', new_admin_test_question_path(@test)  %>
-<%= link_to 'Edit questions', admin_test_questions_path(@test)  %>
+  <%= link_to t('.back'), admin_tests_path %>
+  <%= link_to t('.edit'), edit_admin_test_path(@test) %>
+  <%= link_to t('.add_question'), new_admin_test_question_path(@test)  %>
+  <%= link_to t('.edit_questions'), admin_test_questions_path(@test)  %>
+</div>

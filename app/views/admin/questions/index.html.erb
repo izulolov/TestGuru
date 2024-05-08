@@ -1,23 +1,25 @@
-<% if @questions.count.positive? %>
+<div class="admincontent">
+  <% if @questions.count.positive? %>
 
-  <h1>Questions for the test</h1>
+    <h1><%= t('.header', test_title: @test.title) %></h1>
 
-  <table>
+    <table>
+      
+      <tr>
+        <th><%= t('.table_header_questions') %></th>
+        <th colspan="3"><%= t('.table_header_actions') %></th>
+      </tr>
+
+      <%= render @questions%>
+
+    </table>
     
-    <tr>
-      <th>Question</th>
-      <th colspan="3">Actions</th>
-    </tr>
+  <%else%>
+    
+    <h1>This test is empty!</h1>
 
-    <%= render @questions%>
-
-  </table>
+  <% end %>
   
-<%else%>
-  
-  <h1>This test is empty!</h1>
-
-<% end %>
-
-<%= link_to 'Back', admin_test_path(@test)%>
-<%= link_to 'Add question', new_admin_test_question_path(@test)  %>
+  <%= link_to t('admin.author_actions.back'), admin_test_path(@test)%>
+  <%= link_to t('.add_questions'), new_admin_test_question_path(@test)  %>
+</div>

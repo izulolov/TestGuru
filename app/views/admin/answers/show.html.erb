@@ -1,17 +1,23 @@
-<h1>Question</h1>
+<div class="admincontent">
+  <h1><%= t('.question') %>:</h1>
 
-<p>
-  <%= @answer.question.body %>
-</p>
+  <p>
+    <%= @answer.question.body %>
+  </p>
 
-<p>
-  <b>Answer:</b>
-  <%= @answer.body %>
-</p>
+  <p>
+    <b><%= t('.answer') %>:</b>
+    <%= @answer.body %>
+  </p>
 
-<p>
-  <b>Correct:</b>
-  <%= @answer.correct %>
-</p>
+  <p>
+    <% if @answer.correct %>
+      <span class="answertrue"><%= t('.correct_true') %></span>
+    <% else %>
+      <span class="answerfalse"><%= t('.correct_false') %></span>
+    <% end %>
+  </p>
 
-<%= link_to 'Back', admin_question_path(@answer.question) %>
+  <%= link_to t('.back'), admin_question_path(@answer.question) %>
+  <%= link_to t('.edit'), edit_admin_answer_path(@answer) %>
+</div>

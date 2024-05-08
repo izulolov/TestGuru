@@ -3,6 +3,10 @@
 en:
   devise:
     confirmations:
+      new:
+        header: "Resend confirmation instructions"
+        email: "Email"
+        resend_instructions: "Resend confirmation instructions"
       confirmed: "Your email address has been successfully confirmed."
       send_instructions: "You will receive an email with instructions for how to confirm your email address in a few minutes."
       send_paranoid_instructions: "If your email address exists in our database, you will receive an email with instructions for how to confirm your email address in a few minutes."
@@ -54,6 +58,33 @@ en:
       update_needs_confirmation: "You updated your account successfully, but we need to verify your new email address. Please check your email and follow the confirmation link to confirm your new email address."
       updated: "Your account has been updated successfully."
       updated_but_not_signed_in: "Your account has been updated successfully, but since your password was changed, you need to sign in again."
+      edit:
+        header: "Change registration data"
+        awaiting_confirmation: "Currently waiting confirmation for: %{email}"
+        field_can_be_blank: "(leave blank if you don't want to change it)"
+        minimum_password_length: "%{length} characters minimum"
+        current_password: "Current password"
+        current_password_info: "(we need your current password to confirm your changes)"
+        update: "Update"
+        cancel: "Cancel my account"
+        unhappy: "Unhappy?"
+        cancel_current_account: "Cancel my account"
+        cancel_confirmation: "Are you sure?"
+        back: "Back"
+        last_name: "Last name"
+        first_name: "First name"
+        email: "Email"
+        password: "Password"
+        password_confirmation: "Password confirmation"
+      new:
+        header: "Sign up"
+        minimum_password_length: "%{length} characters minimum"
+        sign_up: "Sign up"
+        last_name: "Last name"
+        first_name: "First name"
+        email: "Email"
+        password: "Password"
+        password_confirmation: "Password confirmation"
     sessions:
       signed_in: "Signed in successfully."
       signed_out: "Signed out successfully."
@@ -85,4 +116,6 @@ en:
       not_locked: "was not locked"
       not_saved:
         one: "1 error prohibited this %{resource} from being saved:"
+        few: "%{count} errors prohibited this %{resource} from being saved:"
+        many: "%{count} errors prohibited this %{resource} from being saved:"
         other: "%{count} errors prohibited this %{resource} from being saved:"
