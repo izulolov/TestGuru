@@ -1,18 +1,14 @@
-<h1>All tests are in out system:</h1>
-<% if user_signed_in? %>
-<p>
-  <%= link_to 'New test', new_admin_test_path %>
-</p>
-<% else %>
-  <p><%= link_to 'New test', new_admin_test_path, data: { confirm: 'Please log in first'} %></p>
-<% end %>
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Level</th>
-    <th>Number of questions</th>
-    <th colspan="4">Actions</th>
-  </tr>
+<div class="admincontent">
+  <h1><%= t('.header') %></h1>
+    <%= link_to t('.new_test'), new_admin_test_path %>
+  <table>
+    <tr>
+      <th><%= t('.title') %></th>
+      <th><%= t('.level') %></th>
+      <th><%= t('.questions_count') %></th>
+      <th colspan="4"><%= t('.actions') %></th>
+    </tr>
 
-    <%= render @tests %>
-</table>
+      <%= render @tests %>
+  </table>
+</div>

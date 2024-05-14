@@ -1,0 +1,162 @@
+ru:
+  hello: "Привет Мир!"
+
+  helpers:
+    submit:
+      test:
+        create: "Создать Тест"
+        update: "Обновить Тест"
+    label:
+      test:
+        title: "Название"
+        level: "Уровень"
+        category_id: "Категория"
+
+  layouts:
+    header:
+      alltests: "Все тесты"
+      aboutproject: "О проекте"
+      exit: "Выйти"
+      signup: "Регистарция"
+      signin: "Войти"
+    
+    footer:
+      datatime: "Дата и время"
+      author: "Автор: Зулолов И.М"
+      eduproject: "Учебный проект в школе Thinknetica"
+
+  tests:
+    index:
+      header: "Доступные тесты"
+      title: "Название"
+      level: "Сложность"
+      number_of_questions: "Число вопросов"
+      action: "Действие"
+    test:
+      start: "Начать"
+      easy: "Нулевой"
+      elementary: "Начальный"
+      advanced: "Свбодный"
+      hard: "Герой"
+      hero: "Ветеран"
+
+  test_passages:
+    show:
+      header: "Вы проходите тест:"
+      question_number: "Количество вопросов в тесте: %{questions_count}"
+      question_position: "Вопрос номер %{question_position}"
+      next_question: "Следующий вопрос"
+      back: "Выйти из теста"
+      back_confirmation: "Прервать выполнение теста и вернутся в главную страницу?"
+    result:
+      header: "Завершен тест по %{title}!"
+      success_result: "Вы правильно ответили на %{percent} процентов вопросов и успешно сдали тест!"
+      failur_result: "Вы правильно ответили на %{percent} процентов вопросов и не сдали тест!"
+      number_correct_answers: "Количество правильных ответов: %{count}"
+      back: "Вернуться к списку тестов"
+
+  tests_mailer:
+    completed_test:
+      subject: "Вы успешно завершили тест на TestGuru!"
+  
+  admin:
+    answers:
+      form:
+        submit: "Создать ответ"
+        body: "Текст ответа"
+        correct: "Это верный ответ"
+      new:
+        header: "Создать новый ответ"
+        back: "Вернуться к вопросу"
+      edit:
+        header: "Редактирование вопроса"
+        back: "Вернуться к вопросу"
+        show: "Просмотреть ответ"
+        delete: "Удалить"
+        delete_confirmation: "Вы уверены?"
+      show:
+        header: "Просмотреть ответ для вопроса"
+        edit: "Редактировать ответ"
+        answer: "Ответ"
+        question: "Вопрос"
+        back: "Вернуться к вопросу"
+        correct_true: "Это верный ответ"
+        correct_false: "Это неверный ответ"
+    questions:
+      index:
+        header: "Все вопросы к тесту %{test_title}"
+        table_header_questions: "Вопросы"
+        table_header_actions: "Действие"
+        add_questions: "Добавить вопрос"
+      new:
+        header: "Создать вопрос для теста"
+        back: "Вернуться к тесту"
+      edit:
+        header: "Редактировать текст вопроса для теста"
+        back: "Вернуться к тесту"
+        show: "Просмотреть вопрос"
+        delete: "Удалить"
+        delete_confirmation: "Вы уверены?"
+      form:
+        body: "Тест вопроса"
+        submit: "Создать вопрос"
+        back: "Назад"
+      show:
+        header: "Текст вопроса теста \"%{title}\""
+        back: "Вернуться к тесту"
+        edit: "Редактировать вопрос"
+        add_answer: "Добавить ответ"
+        answers: "Ответы"
+    tests:
+      create:
+        success: "Тест успешно создан!"
+      edit:
+        header: "Редактировать тест"
+        back: "Вернуться к списку тестов"
+        show: "Просмотреть тест"
+        delete: "Удалить тест"
+        delete_confirmation: "Вы уверены? Это действие безвозвратно удалит весь тест!"
+      index:
+        header: "Список всех тестов"
+        new_test: "Создать новый тест"
+        title: "Название"
+        level: "Уровень"
+        questions_count: "Кол.вопросов"
+        actions: "Действия"
+        start: "Начать"
+      new:
+        header: "Создать новый тест"
+        back: "Вернуться к списку тестов"
+      show:
+        header: "Название теста: %{test_title}, уровень: %{test_level}. Все вопросы к тесту"
+        category: "Категория"
+        title: "Название"
+        author: "Автор"
+        question_body: "Текст вопроса"
+        back: "Вернуться к списку тестов"
+        edit: "Редактировать тест"
+        add_question: "Добавить вопрос"
+        edit_questions: "Изменить вопросы"
+        if_test_empty: "Этот тест пустой"
+      test:
+        delete_confirmation: "Вы уверены? Это действие безвозвратно удалит весь тест!"
+        start: "Начать"
+    author_actions:
+      header: "Действия автора"
+      show: "Просмотреть"
+      edit: "Редактировать"
+      delete: "Удалить"
+      delete_confirmation: "Вы уверены?"
+      back: "Назад"
+    nav:
+      nav_admin_title: "TestGuru Панель Администратора"
+      welcom_admin: "Добро пожаловать, %{admin_email} Guru"
+      logout: "Выход"
+
+  shared:
+    errors:
+      header:
+        one: "Обнаружена %{count} ошибка:"
+        few: "Обнаружено %{count} ошибки:"
+        many: "Обнаружено %{count} ошибок:"
+        other: "Обнаружено %{count} ошибок:"

@@ -1,13 +1,13 @@
-<h1>Test <%= @test_passage.test.title %> test is completed! </h1>
+<div class="resulttestpass">
+  <% if @test_passage.successfully_passed? %>
+    <h1><%= t('.header', title: @test_passage.test.title) %></h1>
+    <h2 class="passed"><%= t('.success_result', percent: @test_passage.percent_correct) %></h2>
+  <%else%>
+    <h1><%= t('.header', title: @test_passage.test.title) %></h1>
+    <h2 class="not-passed"><%= t('.failur_result', percent: @test_passage.percent_correct) %></h2>
+    <p><%= t('test_passages.show.question_number', questions_count: @test_passage.count_questions ) %></p>
+    <p><%= t('.number_correct_answers', count: @test_passage.correct_questions) %></p>
+  <%end%>
 
-<% if @test_passage.successfully_passed? %>
-  <p>The test <%= @test_passage.test.title %> successfully passed! </p>
-  <p>Your result: <span class="passed"><%= @test_passage.percent_correct %> </span></p>
-<%else%>
-  <p>The test <%= @test_passage.test.title %> is not passed! </p>
-  <p>Number of questions: <%= @test_passage.count_questions %>, you answered correctly <%= @test_passage.correct_questions %> </p>
-  <p>Your result: <span class="not-passed"><%= @test_passage.percent_correct %> </span></p>
-<%end%>
-
-<p>Do you want to try again? <%= link_to 'Try again!', tests_path %> </p>
-<%= link_to 'Go back to the test selection', tests_path %>
+  <p><%= link_to t('.back'), tests_path, method: :get, params: { lang: params[:lang] } %></p>
+</div>

@@ -1,15 +1,17 @@
-<h1><%= question_header(@question) %></h1>
+<div class="admincontent">
+  <h1><%= question_header(@question) %></h1>
 
-<%= form_with model: [:admin, @test, @question], local: true do |form| %>
-  <%= render 'shared/errors', resource: @question %>
-  <p>
-    <%= form.label :body, 'Текст вопроса:' %>
-    <br>
-    <%= form.text_area :body %>
-    <% if @question.errors.empty? %><br><% end %>
-  </p>
+  <%= form_with model: [:admin, @test, @question], local: true do |form| %>
+    <%= render 'shared/errors', resource: @question %>
+    <p>
+      <%= form.label :body, t('.body') %>:
+      <br>
+      <%= form.text_area :body %>
+      <% if @question.errors.empty? %><br><% end %>
+    </p>
 
-  <p><%= form.submit %></p>
-<% end %>
+    <p><%= form.submit t('.submit') %></p>
+  <% end %>
 
-<%= link_to 'Back', admin_test_questions_path(@question.test)  %>
+  <%= link_to t('.back'),  admin_test_questions_path(@question.test)  %>
+</div>

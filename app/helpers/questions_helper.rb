@@ -1,6 +1,6 @@
 module QuestionsHelper
 
   def question_header(question)
-    question.persisted? ? "Edit #{question.test.title} Question" : "Create New #{question.test.title} Question"
+    question.persisted? ? I18n.t('.admin.questions.edit.header') : I18n.t('.admin.questions.new.header')
   end
 end

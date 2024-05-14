@@ -1,9 +1,11 @@
-<li>
-  <%= answer.body %>
-  <%= link_to 'Show', admin_answer_path(answer) %>
-  <%= link_to 'Edit', edit_admin_answer_path(answer) %>
-  <%= link_to 'Delete', 
-                admin_answer_path(answer),
-                method: :delete,
-                data: { confirm: 'Are you sure' } %>
-</li>
+<div class="admincontent">
+  <li>
+    <%= answer.body %>
+    <%= link_to t('admin.author_actions.show'), admin_answer_path(answer) %>
+    <%= link_to t('admin.author_actions.edit'), edit_admin_answer_path(answer) %>
+    <%= link_to t('admin.author_actions.delete'), 
+                  admin_answer_path(answer),
+                  method: :delete,
+                  data: { confirm: t('admin.author_actions.delete_confirmation') } %>
+  </li>
+</div>

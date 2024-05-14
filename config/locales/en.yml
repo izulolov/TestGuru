@@ -31,3 +31,158 @@
 
 en:
   hello: "Hello world"
+
+  helpers:
+    submit:
+      test:
+        create: "Create Test"
+        update: "Update Test"
+    label:
+      test:
+        title: "Title"
+        level: "Level"
+        category_id: "Category"
+
+  layouts:
+    header:
+      alltests: "All tests"
+      aboutproject: "About project"
+      exit: "Exit"
+      signup: "Sign up"
+      signin: "Sign in"
+    footer:
+      datatime: "Date and time"
+      author: "Author: I.M. Zulolov"
+      eduproject: "Educational project at the Thinknetica school"
+
+  tests:
+    index:
+      header: "List of all Tests"
+      title: "Title"
+      number_of_questions: "Number of questions"
+      test: "Test"
+      action: "Author actions"
+    test:
+      start: "Start"
+      easy: "Easy"
+      elementary: "Elementary"
+      advanced: "Advanced"
+      hard: "Hard"
+      hero: "Hero"
+
+  test_passages:
+    result:
+      header: "Test completed: %{title}"
+      back: "Back to Tests list"
+      success: "You gave %{complete_percent}% correct answers and successfully completed the Test!"
+      failure: "You gave %{complete_percent}% correct answers and haven't passed the Test!"
+    show:
+      header: "You passing a Test:"
+      question_number: "Question %{current_question_number} from %{questions_count}:"
+      next_question: "Next question"
+      back: "Back to Tests list"
+      back_confirmation: "Interrupt execution of the Test?"
+
+  tests_mailer:
+    completed_test:
+      subject: "You just completed the TestGuru test!"
+
+  admin:
+    answers:
+      form:
+        submit: "Create answer"
+        body: "Answer text"
+        correct: "Correct answer"
+      new:
+        header: "Create a new answers"
+        back: "Back to question"
+      edit:
+        header: "Editing answer"
+        back: "Back to question"
+        show: "Show answer"
+        delete: "Delete"
+        delete_confirmation: "Are you sure?"
+      show:
+        header: "Show an Answer for Question"
+        edit: "Edit answer"
+        answer: "Answer"
+        question: "Question"
+        back: "Back to Question"
+        correct_true: "This is the correct Answer"
+        correct_false: "This is the wrong Answer"
+    questions:
+      index:
+        header: "All questions for the test %{test_title}"
+        table_header_questions: "Questions"
+        table_header_actions: "Actions"
+        add_questions: "Add questions"
+      new:
+        header: "Create new Question for Test"
+        back: "Back to Test"
+      edit:
+        header: "Edit a Question text for Test"
+        back: "Back to Test"
+        show: "Show a Question"
+        delete: "Delete"
+        delete_confirmation: "Are you sure?"
+      form:
+        body: "Question text"
+        submit: "Create question"
+        back: "Back"
+      show:
+        header: "Question text for the Test \"%{title}\""
+        back: "Back to Test"
+        edit: "Edit a Question"
+        add_answer: "Add an Answer"
+        answers: "Answers"
+    tests:
+      create:
+        success: "Test created successfully!"
+      edit:
+        header: "Edit a Test"
+        back: "Back to Tests list"
+        show: "Show a Test"
+        delete: "Delete a Test"
+        delete_confirmation: "Are you sure? This action will permanently delete the entire Test!"
+      index:
+        header: "List of all tests"
+        new_test: "Create a new Test"
+        title: "Title"
+        level: "Level"
+        questions_count: "Questions count"
+        actions: "Actions"
+        start: "Start"
+      new:
+        header: "Create a new test"
+        back: "Back to tests list"
+      show:
+        header: "Name of the test: %{test_title}, level: %{test_level}. All the questions from this test"
+        category: "Category"
+        title: "Title"
+        author: "Author"
+        question_body: "Question text"
+        back: "Back to Tests list"
+        edit: "Edit a Test"
+        add_question: "Add a Question"
+        edit_questions: "Edit a Questions"
+        if_test_empty: "This test is empty"
+      test:
+        delete_confirmation: "Are you sure? This action will permanently delete the entire Test!"
+        start: "Start"
+    author_actions:
+      header: "Author actions"
+      show: "Show"
+      edit: "Edit"
+      delete: "Delete"
+      delete_confirmation: "Are you sure?"
+      back: "Back"
+    nav:
+      nav_admin_title: "TestGuru Admin Panel"
+      welcom_admin: "Welcom, %{admin_email} Guru"
+      logout: "Logout"
+
+  shared:
+    errors:
+      header:
+        one: "%{count} error detected"
+        other: "%{count} errors detected"

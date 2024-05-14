@@ -1,16 +1,11 @@
-<footer>
-  <div class="wrapper">
-    <div class="block">
-      <%= current_year %>
-    </div>
-    <div class="block">
-      <a>Автор: Зулолов И.М <%= github_url('TestGuru', '/izulolov/TestGuru') %> </a>
-    </div>
-    <div class="block">
-      <a class="href-color" href='http://thinknetica.com/'>
-        Учебный проект в онлайн-школе Thinknetica
-      </a>
-    </div>
+<footer class="footer-container">
+  <div class="left-footer">
+    <a class="left-footer-a"> <%= t('layouts.footer.datatime') %>: <%= current_year %></a>
+  </div>
+  <div class="center-footer">
+    <a class="center-footer-a"><%= t('layouts.footer.author') %>: <%= github_url('TestGuru', '/izulolov/TestGuru') %> </a>
+  </div>
+  <div class="right-footer">
+    <a class="right-footer-a" href="https://thinknetica.com/" ><%= t('layouts.footer.eduproject') %></a>
   </div>
 </footer>
- 
