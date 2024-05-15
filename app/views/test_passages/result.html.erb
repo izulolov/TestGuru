@@ -1,13 +1,15 @@
-<div class="resulttestpass">
-  <% if @test_passage.successfully_passed? %>
-    <h1><%= t('.header', title: @test_passage.test.title) %></h1>
-    <h2 class="passed"><%= t('.success_result', percent: @test_passage.percent_correct) %></h2>
-  <%else%>
-    <h1><%= t('.header', title: @test_passage.test.title) %></h1>
-    <h2 class="not-passed"><%= t('.failur_result', percent: @test_passage.percent_correct) %></h2>
-    <p><%= t('test_passages.show.question_number', questions_count: @test_passage.count_questions ) %></p>
-    <p><%= t('.number_correct_answers', count: @test_passage.correct_questions) %></p>
-  <%end%>
+<div class="row">
+  <div class="p-3 resultinfo">
+    <% if @test_passage.successfully_passed? %>
+      <h1><%= t('.header', title: @test_passage.test.title) %></h1>
+      <h3 class="passed"><%= t('.success_result', percent: @test_passage.percent_correct) %></h3>
+    <%else%>
+      <h1><%= t('.header', title: @test_passage.test.title) %></h1>
+      <h3 class="not-passed"><%= t('.failur_result', percent: @test_passage.percent_correct) %></h3>
+      <p><%= t('test_passages.show.question_number', questions_count: @test_passage.count_questions ) %></p>
+      <p><%= t('.number_correct_answers', count: @test_passage.correct_questions) %></p>
+    <%end%>
 
-  <p><%= link_to t('.back'), tests_path, method: :get, params: { lang: params[:lang] } %></p>
+    <p class="p-3"><%= link_to t('.back'), tests_path, method: :get, params: { lang: params[:lang] }, class: 'btn btn-primary', class: 'btn btn-primary' %></p>
+  </div>
 </div>

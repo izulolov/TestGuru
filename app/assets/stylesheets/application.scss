@@ -1,4 +1,6 @@
 @import "bootstrap";
+@import "test_passages";
+@import "flash";
 
 /* Кнопка выбора языка */
 .lang-btn{
@@ -33,10 +35,6 @@
   font-weight: bold;
 }
 
-.testpassinfo, .testpasscontainer{
-  text-align: center;
-}
-
-.salam{
+.testpassinfo, .testpasscontainer, .resultinfo{
   text-align: center;
 }
