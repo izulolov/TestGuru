@@ -1,19 +1,28 @@
-<div class="testpasscontainer">
-  <h1><%= t('.header') %> <%= @test_passage.test.title %></h1>
-  <h2><%= t('.question_number', questions_count: @test_passage.test.questions.count) %> </h2>
-  <b>
-    <%= t('.question_position', question_position: @test_passage.current_question_possition) %>: <%= @test_passage.current_question.body %>
-  </b>
-
-  <%= form_with url: test_passage_path(@test_passage), local: true, method: :put do |form| %>
-    <%= form.collection_check_boxes :answer_ids, @test_passage.current_question.answers, :id, :body, include_hidden: false do |b| %>
-      <p>  
-        <%= b.check_box id: "answer_ids_#{b.object.id}" %>
-        <%= b.label %>
-      </p>
-    <% end %>
-
-    <p><%= form.submit t('.next_question') %></p>
-  <% end %>
-    <p><%= button_to t('.back'), tests_path, method: :get, params: { lang: params[:lang] }, data: { confirm: t('.back_confirmation') } %></p>
+<div class="row">
+  <div class="testpassinfo p-3">
+    <h1><%= t('.header') %> <%= @test_passage.test.title %></h1>
+    <h4><%= t('.question_number', questions_count: @test_passage.test.questions.count) %> </h4>
+  </div>
+</div>
+<div class="row">
+  <div class="testpasscontainer p-3">
+    <b class="p-3">
+      <%= t('.question_position', question_position: @test_passage.current_question_possition) %>: <%= @test_passage.current_question.body %>
+    </b>
+    <div class="p-3">
+      <%= form_with url: test_passage_path(@test_passage), local: true, method: :put do |form| %>
+        <%= form.collection_check_boxes :answer_ids, @test_passage.current_question.answers, :id, :body, include_hidden: false do |b| %>
+          <p>
+            <%= b.check_box id: "answer_ids_#{b.object.id}", class: 'form-check-input' %>
+            <%= b.label %>
+          </p>
+        <% end %>
+        <p><%= form.submit t('.next_question'), class: 'btn btn-primary' %></p>
+      <% end %>
+      <p><%= button_to t('.back'), tests_path,
+                        method: :get, params: { lang: params[:lang] },
+                        data: { confirm: t('.back_confirmation') },
+                        class: 'btn btn-warning' %></p>
+    </div>
+  </div>
 </div>
