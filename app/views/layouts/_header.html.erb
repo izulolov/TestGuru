@@ -1,19 +1,24 @@
-<header>
-  <div class="container">
-    <div class="left-header">
-        <%= link_to 'TestGuru', root_path %>
-        <%= link_to t('layouts.header.alltests'), tests_path %>
-        <a> <%= t('layouts.header.aboutproject') %></a>
-    </div>
-    <div class="right-header">
-      <%if user_signed_in? %>
-        <%= link_to t('layouts.header.exit'), destroy_user_session_path, method: :delete, data: { confirm: 'Вы уверены?' } %>
-      <%else%>
-        <%= link_to t('layouts.header.signup'), new_user_registration_path %>
-        <%= link_to t('layouts.header.signin'), new_user_session_path %>
-      <%end%>
-      <%= button_to 'РУ', tests_path, method: :get, params: { lang: "ru" } %>
-      <%= button_to 'EN', tests_path, method: :get, params: { lang: "en" } %>
+<div class="row bg-dark text-light align-items-center p-3">
+  <div class="col-md-6">
+    <div class="d-flex justify-content-start align-items-center">
+      <div class="image-div ps-5 p-2"><a class="logo"><%= image_tag("icons.png") %></a></div>
+      <div class="p-2 me-3"><%= link_to 'TestGuru', root_path, class: "navbar-brand" %></div>
+      <div class="p-2 me-3"><%= link_to t('layouts.header.alltests'), tests_path, class: "navbar-brand" %></div>
+      <a class="navbar-brand p-2"> <%= t('layouts.header.aboutproject') %></a>
     </div>
   </div>
-</header>
+  <div class="col-md-6">
+    <div class="d-flex justify-content-end align-items-center">
+      <%if user_signed_in? %>
+        <div class="p-2">
+          <div><%= link_to t('layouts.header.exit'), destroy_user_session_path, class: "navbar-brand", method: :delete, data: { confirm: 'Вы уверены?' } %></div>
+        </div>
+      <%else%>
+        <div class="p-2"><%= link_to t('layouts.header.signup'), new_user_registration_path, class: "navbar-brand" %></div>
+        <div class="p-2"><%= link_to t('layouts.header.signin'), new_user_session_path, class: "navbar-brand" %></div>
+      <%end%>
+      <div class="p-2" type="button"><%= button_to 'РУ', tests_path, method: :get, params: { lang: "ru" }, class: "lang-btn btn btn-outline-primary"%></div>
+      <div class="pe-5"><%= button_to 'EN', tests_path, method: :get, params: { lang: "en" }, class: "lang-btn btn btn-outline-primary" %></div>
+    </div>
+  </div>
+</div>
