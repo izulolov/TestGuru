@@ -8,8 +8,14 @@
 .image-div img{
   width: 50px;
 }
+.navbar-brand{
+  font-size: 20px;
+  text-decoration: none;
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
 
-.container a.logo {
-  font-size: 25px;
-  padding: 0 !important;
+.navbar-brand:hover{
+  color: blue;
+  transform: scale(1.2);
 }

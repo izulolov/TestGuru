@@ -12,9 +12,17 @@
   </head>
 
   <body>
-    <%= render 'layouts/header'%>
+    <div class="container-fluit">
+      <%= render 'layouts/header'%>
       <%= flash_message %>
+    </div>
+    <div class="container bg-light">
+      <div class="row">
         <%= yield %>
+      </div>
+    </div>
+    <div class="container-fluit">
       <%= render 'layouts/footer'%>
+    </div>
   </body>
 </html>
