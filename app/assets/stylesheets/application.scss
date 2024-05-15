@@ -1,13 +1,17 @@
 @import "bootstrap";
 
+/* Кнопка выбора языка */
 .lang-btn{
   color: white;
   border: 1px solid white;
 }
 
+/* Размер так называемой икнонки в хидере */
 .image-div img{
   width: 50px;
 }
+
+/* Изменение в кнопку от BT5 */
 .navbar-brand{
   font-size: 20px;
   text-decoration: none;
@@ -15,7 +19,16 @@
   transition: transform 0.3s ease;
 }
 
+/* Поменять состояние после наведение мышки */
 .navbar-brand:hover{
   color: blue;
   transform: scale(1.2);
+}
+
+/* отделная ячейка для какой-либо информации */
+.informtext{
+  text-align: center;
+  margin: auto;
+  font-size: 20px;
+  font-weight: bold;
 }

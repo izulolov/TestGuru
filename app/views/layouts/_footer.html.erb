@@ -1,13 +1,12 @@
-<div class="container-fluid bg-dark p-3 mt-5">
-  <div class="row d-flex justify-content-center text-light">
-    <div class="text-size p-2 col-12 col-md-4 ps-5 d-flex justify-content-start">
-      <a><%= t('layouts.footer.datatime') %>: <strong><%= current_year %></a></strong>
-    </div>
-    <div class="p-2 col-12 col-md-4 d-flex justify-content-center ">
-      <%= t('layouts.footer.author') %>: &nbsp; <strong><%= github_url('TestGuru', '/izulolov/TestGuru') %></strong>
-    </div>
-    <div class="p-2 col-12 col-md-4 pe-5 d-flex justify-content-end">
-      <a class="right-footer-a" href="https://thinknetica.com/" ><%= t('layouts.footer.eduproject') %></a>
-    </div>
+<div class="row bg-dark text-light align-items-center p-3 mt-5">
+  <div class="col-md-4 p-2 ps-5 d-flex justify-content-start">
+    <a><%= t('layouts.footer.datatime') %>: <strong><%= current_year %></a></strong>
+  </div>
+  <div class="col-md-4 p-2 d-flex justify-content-center ">
+    <%= t('layouts.footer.author') %>: &nbsp; <strong><%= github_url('TestGuru', '/izulolov/TestGuru') %></strong>
+  </div>
+  <div class="col-md-4 p-2 pe-5 d-flex justify-content-end">
+    <a href="https://thinknetica.com/" ><%= t('layouts.footer.eduproject') %></a>
   </div>
 </div>
+
