@@ -13,14 +13,14 @@
 
   <body>
     <div class="container-fluit">
-      <%= render 'layouts/header'%>
-      <%= flash_message %>
+      <%= render 'shared/header'%>
     </div>
     <div class="container">
+      <%= render 'shared/flash'%>
       <%= yield %>
     </div>
     <div class="container-fluit">
-      <%= render 'layouts/footer'%>
+      <%= render 'shared/footer'%>
     </div>
   </body>
 </html>
