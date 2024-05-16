@@ -8,9 +8,21 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
-    <%= render 'admin/nav' %>
-    <%= render 'shared/flash' %>
+    <div class="container-fluit">
+      <%= render 'admin/nav' %>
+    </div>
 
-    <%= yield %>
-    </body>
+    <div class="container">
+      <%= render 'shared/flash' %>
+    </div>
+    
+    <div class="container">
+      <%= yield %>
+    </div>
+    
+    <div class="container-fluit">
+      <%= render 'layouts/footer' %>
+    </div>
+    
+  </body>
 </html>

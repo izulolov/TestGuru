@@ -1,8 +1,23 @@
-<div class="nav nav-admin">
-  <span class="nav-admin title"><%= t('.nav_admin_title') %></span>
-
-  <div class="nav-admin user">
-    <%= t('.welcom_admin', admin_email: current_user.email) %>
-    <%= link_to t('.logout'), destroy_user_session_path, method: :delete %>
+<div class="row bg-warning text-light align-items-center p-1">
+  <div class="d-flex flex-column justify-content-center align-items-center">
+    <%= t('.nav_admin_title') %>
+  </div>
+</div>
+<div class="row bg-primary text-light align-items-center p-3">
+  <div class="col-md-6">
+    <div class="d-flex justify-content-start align-items-center">
+      <div class="image-div ps-5 p-2"><a class="logo"><%= image_tag("icons.png") %></a></div>
+      <div class="p-2 me-3"><%= link_to 'TestGuru', root_path, class: "link-light" %></div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="d-flex justify-content-end align-items-center">
+      <div class="p-3">
+        <%= t('.welcom_admin', admin_email: current_user.email) %>
+      </div>
+      <div class="pe-3">
+        <%= link_to t('.logout'), destroy_user_session_path, method: :delete, class: "link-light" %>
+      </div>
+    </div>
   </div>
 </div>
