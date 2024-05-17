@@ -16,6 +16,8 @@ module ApplicationHelper
         'alert-warning'
       when 'error'
         'alert-danger'
+      else
+        'alert-secondary'
     end
   end
 end
