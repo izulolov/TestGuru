@@ -1,34 +1,50 @@
-<div class="row bg-dark text-light align-items-center p-3">
-  <div class="col-md-6">
-    <div class="d-flex justify-content-start align-items-center">
-      <div class="image-div ps-5 p-2">
-        <%if user_signed_in? %>
-          <% if (current_user.admin? || !current_user.present?) %>
-            <%= link_to image_tag("icons.png"), admin_tests_path %>
-          <% else %>
-            <%= link_to image_tag("icons.png"), root_path %>
-          <% end %>
+<div class="row">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid p-3">
+    
+    <%if user_signed_in? %>
+      <% if (current_user.admin? || !current_user.present?) %>
+        <%= link_to image_tag("icons.png"), admin_tests_path, class: "navbar-brand ps-5" %>
+      <% else %>
+        <%= link_to image_tag("icons.png"), root_path, class: "navbar-brand ps-5" %>
+      <% end %>
+    <% else %>
+        <a class="logo navbar-brand ps-5"><%= image_tag("icons.png") %></a>
+    <% end %>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse ps-5" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0 navbar-link">
+        <li class="nav-item">
+          <%= link_to 'TestGuru', root_path, class: "nav-link active" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to t('layouts.header.alltests'), tests_path, class: "nav-link active" %>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active"><%= t('layouts.header.aboutproject') %></a>
+        </li>
+      </ul>
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0 pe-5 navbar-link">
+        <% if user_signed_in? %>
+          <li class="nav-item">
+            <%= link_to t('layouts.header.exit'), destroy_user_session_path, class: "nav-link active", method: :delete, data: { confirm: 'Вы уверены?' } %>
+          </li>
         <% else %>
-          <a class="logo"><%= image_tag("icons.png") %></a>
+          <li class="nav-item">
+            <%= link_to t('layouts.header.signup'), new_user_registration_path, class: "nav-link active" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to t('layouts.header.signin'), new_user_session_path, class: "nav-link active" %>
+          </li>
         <% end %>
-      </div>
-      <div class="p-2 me-3"><%= link_to 'TestGuru', root_path, class: "navbar-brand" %></div>
-      <div class="p-2 me-3"><%= link_to t('layouts.header.alltests'), tests_path, class: "navbar-brand" %></div>
-      <a class="navbar-brand p-2"> <%= t('layouts.header.aboutproject') %></a>
+        <%= button_to 'РУ', tests_path, method: :get, params: { lang: "ru" }, class: "btn btn-outline-success btn-size m-1" %>
+        <%= button_to 'EN', tests_path, method: :get, params: { lang: "en" }, class: "btn btn-outline-success btn-size m-1" %>
+      </ul>
+      </ul>
     </div>
   </div>
-  <div class="col-md-6">
-    <div class="d-flex justify-content-end align-items-center">
-      <%if user_signed_in? %>
-        <div class="p-2">
-          <div><%= link_to t('layouts.header.exit'), destroy_user_session_path, class: "navbar-brand", method: :delete, data: { confirm: 'Вы уверены?' } %></div>
-        </div>
-      <%else%>
-        <div class="p-2"><%= link_to t('layouts.header.signup'), new_user_registration_path, class: "navbar-brand" %></div>
-        <div class="p-2"><%= link_to t('layouts.header.signin'), new_user_session_path, class: "navbar-brand" %></div>
-      <%end%>
-      <div class="p-2" type="button"><%= button_to 'РУ', tests_path, method: :get, params: { lang: "ru" }, class: "lang-btn btn btn-outline-primary"%></div>
-      <div class="pe-5"><%= button_to 'EN', tests_path, method: :get, params: { lang: "en" }, class: "lang-btn btn btn-outline-primary" %></div>
-    </div>
-  </div>
+</nav>
 </div>

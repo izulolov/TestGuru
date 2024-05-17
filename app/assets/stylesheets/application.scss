@@ -2,29 +2,33 @@
 @import "test_passages";
 @import "flash";
 
-/* Кнопка выбора языка */
-.lang-btn{
-  color: white;
-  border: 1px solid white;
+
+.navbar-link{
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.navbar-link li a::after{
+  content: '';
+  display: block;
+  width: 100%;
+  background-color: white;
+  height: 1px;
+  transition: all .3s;
+  transform: scale(0);
+}
+
+.navbar-link li a:hover::after{
+  transform: scale(1);
+}
+
+.btn-size{
+  font-weight: bold;
 }
 
 /* Размер так называемой икнонки в хидере */
-.image-div img{
+.logo img{
   width: 50px;
-}
-
-/* Изменение в кнопку от BT5 */
-.navbar-brand{
-  font-size: 20px;
-  text-decoration: none;
-  display: inline-block;
-  transition: transform 0.3s ease;
-}
-
-/* Поменять состояние после наведение мышки */
-.navbar-brand:hover{
-  color: blue;
-  transform: scale(1.2);
 }
 
 /* отделная ячейка для какой-либо информации */
