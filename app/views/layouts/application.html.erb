@@ -12,14 +12,16 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body class="bg-light">
     <div class="container-fluit">
       <%= render 'shared/header'%>
     </div>
-    <div class="container">
-      <%= render 'shared/flash'%>
-      <%= yield %>
-    </div>
+
+      <div class="container">
+        <%= render 'shared/flash'%>
+        <%= yield %>
+      </div>
+   
     <div class="container-fluit">
       <%= render 'shared/footer'%>
     </div>
