@@ -93,6 +93,10 @@ GEM
       warden (~> 1.2.3)
     erubi (1.12.0)
     execjs (2.9.1)
+    faraday (2.9.0)
+      faraday-net_http (>= 2.0, < 3.2)
+    faraday-net_http (3.1.0)
+      net-http
     ffi (1.16.3)
     globalid (1.2.1)
       activesupport (>= 6.1)
@@ -126,6 +130,8 @@ GEM
     mini_mime (1.1.5)
     minitest (5.22.3)
     msgpack (1.7.2)
+    net-http (0.4.1)
+      uri
     net-imap (0.4.10)
       date
       net-protocol
@@ -224,6 +230,7 @@ GEM
     turbolinks-source (5.2.0)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
+    uri (0.13.0)
     warden (1.2.9)
       rack (>= 2.0.9)
     web-console (4.2.1)
@@ -257,6 +264,7 @@ DEPENDENCIES
   byebug
   capybara (>= 3.26)
   devise (~> 4.0)
+  faraday
   jbuilder (~> 2.7)
   jquery-rails
   letter_opener (~> 1.8.0)
