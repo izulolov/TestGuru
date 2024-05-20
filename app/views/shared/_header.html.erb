@@ -1,0 +1,50 @@
+<div class="row">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid p-3">
+    
+    <%if user_signed_in? %>
+      <% if (current_user.admin? || !current_user.present?) %>
+        <%= link_to image_tag("icons.png"), admin_tests_path, class: "navbar-brand ps-5" %>
+      <% else %>
+        <%= link_to image_tag("icons.png"), root_path, class: "navbar-brand ps-5" %>
+      <% end %>
+    <% else %>
+        <a class="logo navbar-brand ps-5"><%= image_tag("icons.png") %></a>
+    <% end %>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse ps-5" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0 navbar-link">
+        <li class="nav-item">
+          <%= link_to 'TestGuru', root_path, class: "nav-link active" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to t('layouts.header.alltests'), tests_path, class: "nav-link active" %>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active"><%= t('layouts.header.aboutproject') %></a>
+        </li>
+      </ul>
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0 pe-5 navbar-link">
+        <% if user_signed_in? %>
+          <li class="nav-item">
+            <%= link_to t('layouts.header.exit'), destroy_user_session_path, class: "nav-link active", method: :delete, data: { confirm: 'Вы уверены?' } %>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <%= link_to t('layouts.header.signup'), new_user_registration_path, class: "nav-link active" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to t('layouts.header.signin'), new_user_session_path, class: "nav-link active" %>
+          </li>
+        <% end %>
+        <%= button_to 'РУ', tests_path, method: :get, params: { lang: "ru" }, class: "btn btn-outline-success btn-size m-1" %>
+        <%= button_to 'EN', tests_path, method: :get, params: { lang: "en" }, class: "btn btn-outline-success btn-size m-1" %>
+      </ul>
+      </ul>
+    </div>
+  </div>
+</nav>
+</div>

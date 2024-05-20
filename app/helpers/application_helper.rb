@@ -8,7 +8,16 @@ module ApplicationHelper
   end
 
   # 2
-  def flash_message
-    flash.map { |key, msg| content_tag(:p, msg, class: "flash #{key}") }.join.html_safe if flash.present?
+  def flash_type(type)
+    case type
+      when 'notice'
+        'alert-success'
+      when 'alert'
+        'alert-warning'
+      when 'error'
+        'alert-danger'
+      else
+        'alert-secondary'
+    end
   end
 end
