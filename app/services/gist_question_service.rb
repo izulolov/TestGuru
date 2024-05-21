@@ -3,7 +3,7 @@ class GistQuestionService
   def initialize(question, client: nil)
     @question = question
     @test = @question.test
-    @client = client || GitHubClient.new
+    @client = client || Octokit::Client.new(access_token: "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")
   end
 
   def call
@@ -14,7 +14,8 @@ class GistQuestionService
 
   def gist_params
     { description: "A question about #{@test.title} from TestGuru",
-      files: { 'test-guru-question.txt' =>
+      public: false,
+      files: { 'test-guru-question.txt':
         { content: gist_content }
       }
     }
@@ -26,3 +27,16 @@ class GistQuestionService
     content.join("\n")
   end
 end
+
+
+=begin
+ params = {
+   "description": "The discription for the gist",
+   "public": true,
+  "files": {
+    "file1.txt": {
+       "content": "String file contents"
+    }
+  }
+}
+=end

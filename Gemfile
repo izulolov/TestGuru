@@ -35,6 +35,8 @@ gem 'bootstrap', '~> 5.3.3'
 
 gem 'jquery-rails'
 
+gem 'octokit'
+
 gem 'faraday'
 
 # Reduces boot times through caching; required in config/boot.rb
