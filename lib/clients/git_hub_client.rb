@@ -1,7 +1,7 @@
 class GitHubClient
   
   ROOT_ENDPOINT = 'https://api.github.com'
-  ACCESS_TOKEN = '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'
+  ACCESS_TOKEN = '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'
 
   def initialize
     @http_client = setup_http_client
