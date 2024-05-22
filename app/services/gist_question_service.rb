@@ -17,7 +17,7 @@ class GistQuestionService
   private
 
   def gist_params
-    { description: "A question about #{@test.title} from TestGuru",
+    { description: I18n.t('.services.gist.descreption', title: @test.title),
       public: true,
       files: { 'test-guru-question.txt':
         { content: gist_content }

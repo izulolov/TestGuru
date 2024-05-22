@@ -163,3 +163,7 @@ ru:
         few: "Обнаружено %{count} ошибки:"
         many: "Обнаружено %{count} ошибок:"
         other: "Обнаружено %{count} ошибок:"
+
+  services:
+    gist:
+      descreption: "Вопрос о тесте %{title} в сервисе TestGuru"
