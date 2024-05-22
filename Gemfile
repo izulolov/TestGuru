@@ -39,6 +39,8 @@ gem 'octokit'
 
 gem 'faraday'
 
+gem 'pry', '~> 0.14.2'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 

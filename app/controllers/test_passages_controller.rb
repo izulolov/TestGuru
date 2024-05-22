@@ -12,16 +12,15 @@ class TestPassagesController < ApplicationController
   end
 
   def gist
-    result = GistQuestionService.new(@test_passage.current_question).call
-
+    result = GistQuestionService.new(@test_passage.current_question)
+    result.call
     flash_options = result.success? ? { notice: t('.success') } : { alert: t('.failure') }
-
     redirect_to @test_passage, flash_options
   end
 
   def update
     @test_passage.accept!(params[:answer_ids])
-
+    
     if @test_passage.completed?
       TestsMailer.completed_test(@test_passage).deliver_now
       redirect_to result_test_passage_path(@test_passage)

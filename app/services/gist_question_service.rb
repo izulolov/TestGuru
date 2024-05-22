@@ -3,18 +3,22 @@ class GistQuestionService
   def initialize(question, client: nil)
     @question = question
     @test = @question.test
-    @client = client || Octokit::Client.new(access_token: "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")
+    @client = client || Octokit::Client.new(access_token: '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')
   end
 
   def call
     @client.create_gist(gist_params)
   end
 
+  def success?
+    @client.last_response.status == 201
+  end
+
   private
 
   def gist_params
     { description: "A question about #{@test.title} from TestGuru",
-      public: false,
+      public: true,
       files: { 'test-guru-question.txt':
         { content: gist_content }
       }

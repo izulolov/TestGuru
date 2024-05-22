@@ -83,7 +83,7 @@ en:
       back: "Back to Tests list"
       back_confirmation: "Interrupt execution of the Test?"
     gist:
-      succes: "Gist was succesfully created!"
+      success: "Gist was succesfully created!"
       failure: "An error occured while saving gist"
 
   tests_mailer:
