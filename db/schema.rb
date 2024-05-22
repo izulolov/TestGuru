@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_04_17_110129) do
+ActiveRecord::Schema.define(version: 2024_05_22_210151) do
 
   create_table "answers", force: :cascade do |t|
     t.string "body", null: false
@@ -30,6 +30,16 @@ ActiveRecord::Schema.define(version: 2024_04_17_110129) do
   create_table "demo", primary_key: "ID", force: :cascade do |t|
     t.string "Name", limit: 20
     t.text "Hint"
+  end
+  
+  create_table "gists", force: :cascade do |t|
+    t.integer "question_id", null: false
+    t.string "gist_url", null: false
+    t.integer "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["question_id"], name: "index_gists_on_question_id"
+    t.index ["user_id"], name: "index_gists_on_user_id"
   end
 
   create_table "questions", force: :cascade do |t|
@@ -91,6 +101,8 @@ ActiveRecord::Schema.define(version: 2024_04_17_110129) do
   end
 
   add_foreign_key "answers", "questions"
+  add_foreign_key "gists", "questions"
+  add_foreign_key "gists", "users"
   add_foreign_key "questions", "tests"
   add_foreign_key "test_passages", "questions", column: "current_question_id"
   add_foreign_key "test_passages", "tests"
