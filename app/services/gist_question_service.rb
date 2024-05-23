@@ -31,16 +31,3 @@ class GistQuestionService
     content.join("\n")
   end
 end
-
-
-=begin
- params = {
-   "description": "The discription for the gist",
-   "public": true,
-  "files": {
-    "file1.txt": {
-       "content": "String file contents"
-    }
-  }
-}
-=end
