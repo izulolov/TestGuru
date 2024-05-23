@@ -54,9 +54,9 @@ ru:
       failur_result: "Вы правильно ответили на %{percent} процентов вопросов и не сдали тест!"
       number_correct_answers: "Количество правильных ответов: %{count}"
       back: "Вернуться к списку тестов"
-    gist:
-      success: "Gist успешно сохранен"
-      failure: "Во время сохранения gist произошла ошибка"
+  gists:
+    success: "Gist успешно сохранен"
+    failure: "Во время сохранения gist произошла ошибка"
 
   tests_mailer:
     completed_test:
