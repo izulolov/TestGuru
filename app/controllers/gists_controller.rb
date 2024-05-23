@@ -3,10 +3,11 @@ class GistsController < ApplicationController
 
   # Создаем гист в гитхаб если всё ок то добавляем гист еще в бд
   def create
-    create_github_gist
-    if @result.success?
-      create_database_gist
-      redirect_to @test_passage, notice: "#{t('.success')} #{view_context.link_to 'GitHub', @response.html_url}"
+    service = GistQuestionService.new(@test_passage.current_question)
+    response = service.call
+    if service.success?
+      create_database_gist(response)
+      redirect_to @test_passage, notice: "#{t('.success')} #{view_context.link_to 'GitHub', response.html_url}"
     else
       redirect_to @test_passage, alert: t('.failure')
     end
@@ -14,14 +15,9 @@ class GistsController < ApplicationController
 
   private
 
-  def create_github_gist
-    @result = GistQuestionService.new(@test_passage.current_question)
-    @response = @result.call
-  end
-
-  def create_database_gist
+  def create_database_gist(response)
     Gist.create(question_id: @test_passage.current_question.id,
-                gist_url: @response.html_url,
+                gist_url: response.html_url,
                 user_id: @test_passage.user_id)
   end
 
