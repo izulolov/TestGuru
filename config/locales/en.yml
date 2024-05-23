@@ -150,6 +150,7 @@ en:
       index:
         header: "List of all tests"
         new_test: "Create a new Test"
+        all_gists: "All gists"
         title: "Title"
         level: "Level"
         questions_count: "Questions count"
@@ -172,6 +173,10 @@ en:
       test:
         delete_confirmation: "Are you sure? This action will permanently delete the entire Test!"
         start: "Start"
+    gists:
+      index:
+        user_email: "User email"
+        question: "Question"
     author_actions:
       header: "Author actions"
       show: "Show"

@@ -122,6 +122,7 @@ ru:
       index:
         header: "Список всех тестов"
         new_test: "Создать новый тест"
+        all_gists: "Все гисты"
         title: "Название"
         level: "Уровень"
         questions_count: "Кол.вопросов"
@@ -144,6 +145,10 @@ ru:
       test:
         delete_confirmation: "Вы уверены? Это действие безвозвратно удалит весь тест!"
         start: "Начать"
+    gists:
+      index:
+        user_email: "Email пользователя"
+        question: "Вопрос"
     author_actions:
       header: "Действия автора"
       show: "Просмотреть"
