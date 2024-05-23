@@ -11,7 +11,7 @@ class GitHubClient
 
     @http_client.post('/gists') do |request|
       request.headers['Accept'] = 'application/vnd.github+json'
-      request.headers['Authorization'] = "Bearer #{ACCESS_TOKEN}"
+      request.headers['Authorization'] = "Bearer #{ENV['GITHUB_GIST_ACCESS_TOKEN']}"
       request.headers['X-GitHub-Api-Version'] = '2022-11-28'
       request.body = params.to_json
     end
