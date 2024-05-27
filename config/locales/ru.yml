@@ -54,6 +54,9 @@ ru:
       failur_result: "Вы правильно ответили на %{percent} процентов вопросов и не сдали тест!"
       number_correct_answers: "Количество правильных ответов: %{count}"
       back: "Вернуться к списку тестов"
+  gists:
+    success: "Gist успешно сохранен"
+    failure: "Во время сохранения gist произошла ошибка"
 
   tests_mailer:
     completed_test:
@@ -119,6 +122,7 @@ ru:
       index:
         header: "Список всех тестов"
         new_test: "Создать новый тест"
+        all_gists: "Все гисты"
         title: "Название"
         level: "Уровень"
         questions_count: "Кол.вопросов"
@@ -141,6 +145,10 @@ ru:
       test:
         delete_confirmation: "Вы уверены? Это действие безвозвратно удалит весь тест!"
         start: "Начать"
+    gists:
+      index:
+        user_email: "Email пользователя"
+        question: "Вопрос"
     author_actions:
       header: "Действия автора"
       show: "Просмотреть"
@@ -160,3 +168,7 @@ ru:
         few: "Обнаружено %{count} ошибки:"
         many: "Обнаружено %{count} ошибок:"
         other: "Обнаружено %{count} ошибок:"
+
+  services:
+    gist:
+      descreption: "Вопрос о тесте %{title} в сервисе TestGuru"

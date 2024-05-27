@@ -14,14 +14,15 @@ Rails.application.routes.draw do
     member do
       get :result
     end
+    resources :gists, only: %i[create]
   end
 
   namespace :admin do
+    resources :gists
     resources :tests do
       resources :questions, shallow: true do
         resources :answers, shallow: true
       end
     end
   end
-
 end

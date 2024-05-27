@@ -1,17 +1,21 @@
-<div class="col-12 col-md-4 col-lg-3 p-2">
-  <div class="card">
-    <div class="card-img ">
-      <%= image_tag("icons.png", class: "card-img-top") %>
-    </div>
-    <div class="card-body">
-      <h5 class="card-title"><%= t('tests.index.title') %>: <%= test.title %></h5>
-      <div class="card-text">
-        <p class="mb-0"><%= t('tests.index.level') %>: <%= t(".#{test_level(test)}") %></p> 
-        <p><%= t('tests.index.number_of_questions') %>: <%= test_questions_number(test) %></p>
+<% @tests.each do |test| %>
+  <% if !test.questions.empty? %>
+    <div class="col-12 col-md-4 col-lg-3 p-2">
+      <div class="card">
+        <div class="card-img ">
+          <%= image_tag("icons.png", class: "card-img-top") %>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title"><%= t('tests.index.title') %>: <%= test.title %></h5>
+          <div class="card-text">
+            <p class="mb-0"><%= t('tests.index.level') %>: <%= t(".#{test_level(test)}") %></p> 
+            <p><%= t('tests.index.number_of_questions') %>: <%= test_questions_number(test) %></p>
+          </div>
+          <div class="d-flex justify-content-center">
+            <%= button_to t('tests.test.start'), start_test_path(test), class: "btn btn-primary" %>
+          </div>
+        </div>
       </div>
-      <div class="d-flex justify-content-center">
-        <%= button_to t('tests.test.start'), start_test_path(test), class: "btn btn-primary" %>
-      </div>
     </div>
-  </div>
-</div>
+  <% end %>
+<% end %>

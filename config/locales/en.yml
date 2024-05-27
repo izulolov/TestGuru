@@ -82,6 +82,9 @@ en:
       next_question: "Next question"
       back: "Back to Tests list"
       back_confirmation: "Interrupt execution of the Test?"
+  gists:
+    success: "Gist was succesfully created!"
+    failure: "An error occured while saving gist"
 
   tests_mailer:
     completed_test:
@@ -147,6 +150,7 @@ en:
       index:
         header: "List of all tests"
         new_test: "Create a new Test"
+        all_gists: "All gists"
         title: "Title"
         level: "Level"
         questions_count: "Questions count"
@@ -169,6 +173,10 @@ en:
       test:
         delete_confirmation: "Are you sure? This action will permanently delete the entire Test!"
         start: "Start"
+    gists:
+      index:
+        user_email: "User email"
+        question: "Question"
     author_actions:
       header: "Author actions"
       show: "Show"
@@ -186,3 +194,7 @@ en:
       header:
         one: "%{count} error detected"
         other: "%{count} errors detected"
+
+  services:
+    gist:
+      descreption: A question about %{title} from TestGuru"
