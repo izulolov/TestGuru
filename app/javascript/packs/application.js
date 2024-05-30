@@ -14,3 +14,4 @@ Turbolinks.start()
 ActiveStorage.start()
 
 import "packs/utilities/sorting.js"
+import "packs/utilities/sortingByTestTitle.js"

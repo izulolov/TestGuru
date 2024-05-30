@@ -62,6 +62,7 @@ en:
       number_of_questions: "Number of questions"
       test: "Test"
       action: "Author actions"
+      sort_with_title: "Sort by title"
     test:
       start: "Start"
       easy: "Easy"
