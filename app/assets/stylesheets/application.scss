@@ -64,3 +64,8 @@
 .passedpassword, .failedpassword {
   display: none;
 }
+
+.confirm-disable{
+  pointer-events: none;
+  opacity: 0.3;
+}
