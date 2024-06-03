@@ -16,25 +16,33 @@ function checkPasswords(){
   
   var textCorrect = document.querySelector('.passedpassword')
   var textWrong = document.querySelector('.failedpassword')
-  
-  var msg = document.getElementById('message')
-  
+
   // Изначально поле confirm-password не доступно.
   // Как ввели чтото в поле password открывается поле confirm-password
   // Если в поле confirm-password юзер чтото ввел то начинается сравнивание
   // Если совпадают пароли убираем классы у иконки и правильно текста
-  if (password.value !== ""){
-    
+  if (password.value !== ""){  
     confirmation.classList.remove('confirm-disable')
     if(confirmation.value.trim() !== ""){      
       if (password.value == confirmation.value){
-        octiconCheckCircle.classList.remove('hide')
-        textCorrect.classList.remove('passedpassword')
-      } else {
-        octiconXCircle.classList.remove('hide')
-        textWrong.classList.remove('failedpassword')
-        octiconCheckCircle.setAttribute('class', 'hide')
-        textCorrect.setAttribute('class','passedpassword')
+        if (octiconXCircle.classList.contains("hide") && textWrong.classList.contains("failedpassword")){
+          textCorrect.classList.remove("passedpassword")
+          octiconCheckCircle.classList.remove('hide')  
+        } else {
+          octiconCheckCircle.classList.remove('hide')
+          octiconXCircle.classList.add('hide')
+          textWrong.classList.add("failedpassword")
+        }
+      }
+      else {
+        if (octiconCheckCircle.classList.contains("hide") && textCorrect.classList.contains("passedpassword")){
+          textWrong.classList.remove("failedpassword")
+          octiconXCircle.classList.remove('hide')
+        } else {
+          octiconXCircle.classList.remove('hide')
+          octiconCheckCircle.classList.add('hide')
+          textCorrect.classList.add("passedpassword")
+        }
       }
     }
   }
