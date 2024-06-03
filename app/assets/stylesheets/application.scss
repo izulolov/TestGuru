@@ -5,13 +5,13 @@
 @import "global.scss";
 
 /* Ссылка в хидере */
-.navbar-link{
+.navbar-link {
   font-size: 20px;
   font-weight: bold;
 }
 
 /* Ссылка в хидере после */
-.navbar-link li a::after{
+.navbar-link li a::after {
   content: '';
   display: block;
   width: 100%;
@@ -22,22 +22,22 @@
 }
 
 /* Ссылка в хидере после навидения */
-.navbar-link li a:hover::after{
+.navbar-link li a:hover::after {
   transform: scale(1);
 }
 
 /* Кнопка в хидере */
-.btn-size{
+.btn-size {
   font-weight: bold;
 }
 
 /* Размер так называемой икнонки в хидере */
-.logo img{
+.logo img {
   width: 50px;
 }
 
 /* отделная ячейка для какой-либо информации */
-.informtext{
+.informtext {
   text-align: center;
   margin: auto;
   font-size: 20px;
@@ -48,12 +48,12 @@
   text-align: center;
 }
 
-.page-title{
+.page-title {
   text-align: center;
   padding-top: 20px;
 }
 
-.card-img img{
+.card-img img {
   width: 200px;
   height: 150px;
   margin-left: auto;
@@ -65,7 +65,7 @@
   display: none;
 }
 
-.confirm-disable{
+.confirm-disable {
   pointer-events: none;
   opacity: 0.3;
 }

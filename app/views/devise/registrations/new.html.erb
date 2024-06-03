@@ -37,8 +37,8 @@
       <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control password-confirm confirm-disable" %>
     </div>
     <div id="message">
-      <%= octicon 'check-circle', class: 'hide' %>
-      <%= octicon 'x-circle', class: 'hide' %>
+      <%= octicon 'check-circle', class: 'hide green' %>
+      <%= octicon 'x-circle', class: 'hide red' %>
       <span class="passedpassword"><%= t('.password_confirmation_passed') %></span>
       <span class="failedpassword"><%= t('.password_confirmation_failed') %></span>
     </div>
