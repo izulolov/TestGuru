@@ -83,8 +83,6 @@ ru:
         email: "Почта"
         password: "Пароль"
         password_confirmation: "Подтверждение пароля"
-        password_confirmation_passed: "Пароли совпадают"
-        password_confirmation_failed: "Пароли не совпадают"
     sessions:
       signed_in: "Вход в систему выполнен."
       signed_out: "Выход из системы выполнен."

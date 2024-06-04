@@ -34,13 +34,10 @@
 
     <div class="form-group mb-3 w-50">
       <%= f.label t('.password_confirmation'), class: "form-label" %><br />
-      <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control password-confirm confirm-disable" %>
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control password-confirm" %>
     </div>
-    <div id="message">
-      <%= octicon 'check-circle', class: 'hide green' %>
-      <%= octicon 'x-circle', class: 'hide red' %>
-      <span class="passedpassword"><%= t('.password_confirmation_passed') %></span>
-      <span class="failedpassword"><%= t('.password_confirmation_failed') %></span>
+    <div class="octicon-message">
+      <%= octicon 'check-circle', class: 'hide' %>
     </div>
     <div class="mb-3 d-flex align-items-center justify-content-center">
       <%= f.submit t('.sign_up'), class:"btn btn-lg btn-primary rounded-pill" %>
