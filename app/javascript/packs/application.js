@@ -7,8 +7,12 @@ import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
-
+import "jquery"
 
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+
+import "packs/utilities/sorting.js"
+import "packs/utilities/sortingByTestTitle.js"
+import "packs/utilities/checkPassword.js"

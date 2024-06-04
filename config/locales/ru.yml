@@ -32,6 +32,7 @@ ru:
       level: "Сложность"
       number_of_questions: "Число вопросов"
       action: "Действие"
+      sort_with_title: "Сортировать по названию"
     test:
       start: "Начать"
       easy: "Нулевой"

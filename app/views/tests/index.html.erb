@@ -5,6 +5,10 @@
     </div>
   </div>
 </div>
-<div class="row pt-3">
-  <%= render 'test' %>
+  <div class="click pointer" ><%= t('tests.index.sort_with_title') %>
+    <%= octicon 'arrow-up', class: 'hide' %>
+    <%= octicon 'arrow-down', class: 'hide' %>
+  </div>
+<div class="row pt-3 div-with-all-test">
+  <%= render @tests %>
 </div>
