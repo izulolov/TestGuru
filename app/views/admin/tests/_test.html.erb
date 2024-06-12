@@ -1,5 +1,8 @@
 <tr>
-  <td><%= test.title %></td>
+  <td class="align-middle">
+    <%= test.title %>
+    <%= render 'form_inline', test: test == @test ? @test : test %>
+  </td>
   <td><%= test_level(test) %></td>
   <td class="center"><%= test_questions_number(test) %></td>
   <td><%= link_to t('admin.author_actions.show'), admin_test_path(test) %></td>
