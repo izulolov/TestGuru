@@ -16,3 +16,4 @@ ActiveStorage.start()
 import "packs/utilities/sorting.js"
 import "packs/utilities/sortingByTestTitle.js"
 import "packs/utilities/checkPassword.js"
+import "packs/utilities/formInline.js"

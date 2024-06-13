@@ -1,12 +1,17 @@
 <tr>
   <td class="align-middle">
-    <%= test.title %>
+    <%= content_tag :span, test.title, class: 'test-title', data: { test_id: test.id } %>
     <%= render 'form_inline', test: test == @test ? @test : test %>
   </td>
   <td><%= test_level(test) %></td>
   <td class="center"><%= test_questions_number(test) %></td>
   <td><%= link_to t('admin.author_actions.show'), admin_test_path(test) %></td>
-  <td><%= link_to t('admin.author_actions.edit'), edit_admin_test_path(test) %></td>
+  <td>
+    <%= link_to t('admin.author_actions.edit'), 
+                edit_admin_test_path(test),
+                data: { test_id: test.id },
+                class: 'form-inline-link' %>
+  </td>
   <td>
   <%= link_to t('admin.author_actions.delete'),
               admin_test_path(test),
