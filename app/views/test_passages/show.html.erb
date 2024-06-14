@@ -10,7 +10,12 @@
       <%= t('.question_position', question_position: @test_passage.current_question_possition) %>: <%= @test_passage.current_question.body %>
     </b>
     <div class="p-3">
-      <%= form_with url: test_passage_path(@test_passage), local: true, method: :put do |form| %>
+      <%= form_with url: test_passage_path(@test_passage), 
+                                              local: true, 
+                                              data: {questions_count: @test_passage.test.questions.count, 
+                                                    question_position: @test_passage.current_question_possition},
+                                              class: 'form-with-questions',
+                                              method: :put do |form| %>
         <%= form.collection_check_boxes :answer_ids, @test_passage.current_question.answers, :id, :body, include_hidden: false do |b| %>
           <div class="d-flex justify-content-right">
             <p>
@@ -20,12 +25,15 @@
           </div>
         <% end %>
         <p><%= link_to 'Gist Question', test_passage_gists_path(@test_passage), method: :post, class: 'link-success link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover' %></p>
-        <p><%= form.submit t('.next_question'), class: 'btn btn-primary' %></p>
+        <p><%= form.submit t('.next_question'), class: 'btn btn-primary btn-next' %></p>
       <% end %>
       <p><%= button_to t('.back'), tests_path,
                         method: :get, params: { lang: params[:lang] },
                         data: { confirm: t('.back_confirmation') },
                         class: 'btn btn-warning' %></p>
+    </div>
+    <div class="progress">
+      <div class="progress-bar"  aria-valuemax="100"></div>
     </div>
   </div>
 </div>
