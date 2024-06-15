@@ -9,7 +9,7 @@ function progressBar(){
   if(formWhithQuestions){
     countQuestionsInTest = formWhithQuestions.dataset.questionsCount
     questionPositionInTest = formWhithQuestions.dataset.questionPosition
-    percent = (questionPositionInTest * 100 / countQuestionsInTest)
+    percent = (questionPositionInTest * 100 / countQuestionsInTest).toFixed(2)
     progressBar.style.width = percent + "%"
     progressBar.textContent = percent + "%"
   }
