@@ -146,6 +146,8 @@ ru:
       test:
         delete_confirmation: "Вы уверены? Это действие безвозвратно удалит весь тест!"
         start: "Начать"
+      form_inline:
+        submit: "OK"
     gists:
       index:
         user_email: "Email пользователя"
