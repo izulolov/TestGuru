@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2024_05_22_210151) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "answers", force: :cascade do |t|
     t.string "body", null: false
     t.boolean "correct", default: false, null: false
@@ -31,7 +34,7 @@ ActiveRecord::Schema.define(version: 2024_05_22_210151) do
     t.string "Name", limit: 20
     t.text "Hint"
   end
-  
+
   create_table "gists", force: :cascade do |t|
     t.integer "question_id", null: false
     t.string "gist_url", null: false
