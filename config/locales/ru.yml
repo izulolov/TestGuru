@@ -40,7 +40,8 @@ ru:
       advanced: "Свбодный"
       hard: "Герой"
       hero: "Ветеран"
-
+    start:
+      failure: "Тестой пустой. Попробуйте другой тест."
   test_passages:
     show:
       header: "Вы проходите тест:"

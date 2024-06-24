@@ -70,7 +70,9 @@ en:
       advanced: "Advanced"
       hard: "Hard"
       hero: "Hero"
-
+    start:
+      failure: "The test is empty. Try another test."
+      
   test_passages:
     result:
       header: "Test completed: %{title}"
