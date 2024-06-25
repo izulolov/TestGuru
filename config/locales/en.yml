@@ -85,6 +85,8 @@ en:
       next_question: "Next question"
       back: "Back to Tests list"
       back_confirmation: "Interrupt execution of the Test?"
+    update:
+      failure: "You need to choose an answer."
   gists:
     success: "Gist was succesfully created!"
     failure: "An error occured while saving gist"
