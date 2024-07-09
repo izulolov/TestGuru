@@ -19,7 +19,7 @@ ru:
       exit: "Выйти"
       signup: "Регистарция"
       signin: "Войти"
-    
+      feedback_form: "Связь с нами"
     footer:
       datatime: "Дата и время"
       author: "Автор: Зулолов И.М"

@@ -50,6 +50,7 @@ en:
       exit: "Exit"
       signup: "Sign up"
       signin: "Sign in"
+      feedback_form: "Feedback"
     footer:
       datatime: "Date and time"
       author: "Author: I.M. Zulolov"
