@@ -1,0 +1,13 @@
+<div class="container my-6">
+  <% if user_signed_in? %>
+    <div class="alert alert-success">
+      <h1 class="alert-heading"><%= @feedback.user.first_name %>, ваше сообщение успешно отправлено!</h1>
+      <p class="mb-0">Вот его текст: <%= @feedback.message %></p>
+    </div>
+  <% else %>
+    <div class="alert alert-success">
+      <h1 class="alert-heading"><%= @name %>, ваше сообщение успешно отправлено!</h1>
+      <p class="mb-0">Вот его текст: <%= @message %></p>
+    </div>
+  <% end %>
+</div>
