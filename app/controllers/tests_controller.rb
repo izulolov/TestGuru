@@ -4,16 +4,12 @@ class TestsController < ApplicationController
   before_action :find_test, only: %i[start]
 
   def index
-    @tests = Test.all
+    @tests = Test.with_questions_and_answers
   end
 
   def start
-    if @test.questions.blank?
-      current_user.tests.push(@test)
-      redirect_to current_user.test_passage(@test)
-    else
-      redirect_to tests_path, alert: t('.failure')
-    end
+    current_user.tests.push(@test)
+    redirect_to current_user.test_passage(@test)
   end
 
   private
