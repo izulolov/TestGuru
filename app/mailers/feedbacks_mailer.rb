@@ -8,10 +8,10 @@ class FeedbacksMailer < ApplicationMailer
     mail to: User.where(type: 'Admin').first.email, subject: "Message from #{@last_name} #{@first_name}"
   end
 
-  def new_feedback_unlogged_in_user(name, email, message)
-    @name = name
-    @email = email
-    @message = message
+  def new_feedback_for_anonymous_user(feedback)
+    @name = feedback[:name]
+    @email = feedback[:email]
+    @message = feedback[:message]
     mail to: User.where(type: 'Admin').first.email, subject: "Message from #{@name}"
   end
 end
