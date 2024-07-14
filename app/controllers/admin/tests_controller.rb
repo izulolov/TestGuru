@@ -1,9 +1,14 @@
 class Admin::TestsController < Admin::BaseController
   before_action :set_tests, only: %i[index update_inline]
-  before_action :find_test, only: %i[show edit update destroy start update_inline]
+  before_action :find_test, only: %i[show edit update destroy start update_inline status]
 
   def index
     @tests = Test.all
+  end
+
+  def status
+    @test.update(published: !@test.published)
+    redirect_to admin_test_path(@test), notice: t('.success')
   end
 
   def show

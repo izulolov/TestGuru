@@ -19,4 +19,6 @@
               data: { confirm: t('.delete_confirmation')} %>
   </td>
   <td><%= button_to t('.start'), start_test_path(test) %></td>
+  <td><%= test.published ? "Published" : "Unpublished" %></td>
+  <td><%=  button_to test.published ? "Confiscated" : "Publish", status_admin_test_path(test), method: :patch  %></td>
 </tr>

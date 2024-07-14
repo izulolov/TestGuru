@@ -20,6 +20,7 @@ class Test < ApplicationRecord
     .where('EXISTS (SELECT 1 FROM questions WHERE questions.test_id = tests.id LIMIT 1)')
     .where('EXISTS (SELECT 1 FROM answers WHERE answers.question_id IN (SELECT id FROM questions WHERE questions.test_id = tests.id) LIMIT 1)')
   }
+  scope :published?, -> { where(published: true) }
   def self.sort_test_name_by_category(category)
     sort_by_categories(category)
     .order('tests.title DESC')

@@ -4,7 +4,7 @@ class TestsController < ApplicationController
   before_action :find_test, only: %i[start]
 
   def index
-    @tests = Test.with_questions_and_answers
+    @tests = Test.published?
   end
 
   def start
