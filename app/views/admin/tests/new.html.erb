@@ -1,5 +1,7 @@
-<div class="admincontent">
-  <h1><%= t('.header') %></h1>
+<div class="admincontent container mt-4">
+  <h1 class="mb-4"><%= t('.header') %></h1>
   <%= render 'form' %>
-  <%= link_to t('.back'), admin_tests_path%>
+  <div class="mt-3">
+    <%= link_to t('.back'), admin_tests_path, class: 'btn btn-secondary' %>
+  </div>
 </div>

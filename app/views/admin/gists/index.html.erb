@@ -1,8 +1,12 @@
 <table class="table table-striped table-hover">
-  <tr>
-    <th><%= t('.user_email') %></th>
-    <th>Gist URL</th>
-    <th><%= t('.question') %></th>
-  </tr>
+  <thead>
+    <tr>
+      <th><%= t('.user_email') %></th>
+      <th>Gist URL</th>
+      <th><%= t('.question') %></th>
+    </tr>
+  </thead>
+  <tbody>
     <%= render @gists %>
+  </tbody>
 </table>
