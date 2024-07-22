@@ -8,6 +8,7 @@ class Test < ApplicationRecord
 
   validates :title, presence: true, uniqueness: { scope: :level }
   validates :level, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
+  #validate :can_be_published?
 
   scope :easy, -> { where(level: (0..1)) }
   scope :middle, -> { where(level: (2..4)) }
@@ -15,15 +16,15 @@ class Test < ApplicationRecord
   scope :sort_by_categories, ->(category) {
     joins(:category)
     .where(categories: { title: category }) }
-  scope :with_questions_and_answers, -> {
-    includes(:questions, questions: :answers)
-    .where('EXISTS (SELECT 1 FROM questions WHERE questions.test_id = tests.id LIMIT 1)')
-    .where('EXISTS (SELECT 1 FROM answers WHERE answers.question_id IN (SELECT id FROM questions WHERE questions.test_id = tests.id) LIMIT 1)')
-  }
   scope :published?, -> { where(published: true) }
+
   def self.sort_test_name_by_category(category)
     sort_by_categories(category)
     .order('tests.title DESC')
     .pluck(:title)
+  end
+
+  def can_be_published?
+    !(questions.empty? || answers.empty?)
   end
 end

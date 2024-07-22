@@ -151,6 +151,9 @@ ru:
         start: "Начать"
       form_inline:
         submit: "OK"
+      status:
+        published: "Успешно опуликован!"
+        confiscated: "Тест изъят из публикации!"
     gists:
       index:
         user_email: "Email пользователя"

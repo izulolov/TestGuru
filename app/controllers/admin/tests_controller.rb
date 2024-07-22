@@ -5,10 +5,14 @@ class Admin::TestsController < Admin::BaseController
   def index
     @tests = Test.all
   end
-
+  
   def status
-    @test.update(published: !@test.published)
-    redirect_to admin_test_path(@test), notice: t('.success')
+    if @test.can_be_published?
+      @test.update(published: !@test.published)
+      redirect_to admin_tests_path(@test), notice: @test.published ? "#{ t('.published') }" : "#{ t('.confiscated') }"
+    else
+      redirect_to admin_tests_path(@test), alert: "Тест не опубликован! Тест должен содержать как минимум один вопрос и один ответ"
+    end
   end
 
   def show
@@ -22,7 +26,7 @@ class Admin::TestsController < Admin::BaseController
   def create
     @test = current_user.author_tests.new(test_params)
     if @test.save
-      redirect_to admin_test_path(@test), notice: t('.success')
+      redirect_to admin_test_path(@test), notice: t('.failure')
     else
       render :new
     end
@@ -52,7 +56,7 @@ class Admin::TestsController < Admin::BaseController
     @test.destroy
     redirect_to admin_tests_path
   end
-  
+
   private
 
   def set_tests
