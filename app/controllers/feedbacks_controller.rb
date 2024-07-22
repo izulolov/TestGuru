@@ -18,9 +18,7 @@ class FeedbacksController < ApplicationController
   end
 
   def create_feedback_for_logged_in_user
-    @feedback = Feedback.new(feedback_params)
-    @feedback.user_id = current_user.id
-    
+    @feedback = current_user.feedbacks.new(feedback_params)
     if @feedback.save
       FeedbacksMailer.new_feedback_logged_in_user(@feedback).deliver_now
       render :success
