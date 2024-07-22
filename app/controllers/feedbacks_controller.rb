@@ -4,7 +4,7 @@ class FeedbacksController < ApplicationController
   end
 
   def create
-    user_signed_in? ? create_feedback_for_logged_in_user : create_feedback_for_anonymous_user
+    create_feedback
   end
 
   private
@@ -17,21 +17,20 @@ class FeedbacksController < ApplicationController
     end
   end
 
-  def create_feedback_for_logged_in_user
-    @feedback = current_user.feedbacks.new(feedback_params)
-    if @feedback.save
-      FeedbacksMailer.new_feedback_logged_in_user(@feedback).deliver_now
-      render :success
-    else
-      redirect_to new_feedback_path, alert: "Не удалось отправить отзыв."
-    end
+  def create_feedback
+    user_signed_in? ? feedback_for_logged_user : feedback_for_unlogged_user
   end
 
-  def create_feedback_for_anonymous_user
-    if FeedbacksMailer.new_feedback_for_anonymous_user(feedback_params).deliver_now
-      render :success
-    else
-      redirect_to new_feedback_path, alert: "Не удалось отправить отзыв."
-    end
+  def feedback_for_logged_user
+    @feedback = current_user.feedbacks.new(feedback_params)
+    @feedback.save ? (FeedbacksMailer.new_feedback(@feedback, user_signed_in?).deliver_now;
+                      render :success) :
+                      redirect_to(new_feedback_path, alert: "Не удалось отправить отзыв.")
+  end
+
+  def feedback_for_unlogged_user
+    FeedbacksMailer.new_feedback(feedback_params, user_signed_in?).deliver_now ?
+                    render(:success) :
+                    redirect_to(new_feedback_path, alert: "Не удалось отправить отзыв.")
   end
 end
