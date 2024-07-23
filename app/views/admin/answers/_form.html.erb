@@ -1,17 +1,19 @@
-<div class="admincontent">
+<div class="admincontent container mt-4">
   <%= form_with model: [:admin, @question, @answer], local: true do |form| %>
     <%= render 'shared/errors', resource: @answer %>
 
-    <p>
-      <%= form.label :body, t('.body') %>
-      <%= form.text_area :body, id: :answer_body, rows: 7, cols: 60 %>
-    </p>
+    <div class="mb-3">
+      <%= form.label :body, t('.body'), class: 'form-label' %>
+      <%= form.text_area :body, id: :answer_body, rows: 7, class: 'form-control' %>
+    </div>
 
-    <p>
-      <%= form.label :correct, t('.correct') %>
-      <%= form.check_box :correct, id: :answer_correct %>
-    </p>
+    <div class="mb-3 form-check">
+      <%= form.check_box :correct, id: :answer_correct, class: 'form-check-input' %>
+      <%= form.label :correct, t('.correct'), class: 'form-check-label' %>
+    </div>
 
-    <p><%= form.submit t('.submit') %></p>
+    <div>
+      <%= form.submit t('.submit'), class: 'btn btn-primary' %>
+    </div>
   <% end %>
 </div>

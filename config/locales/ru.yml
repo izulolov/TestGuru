@@ -19,7 +19,7 @@ ru:
       exit: "Выйти"
       signup: "Регистарция"
       signin: "Войти"
-    
+      feedback_form: "Связь с нами"
     footer:
       datatime: "Дата и время"
       author: "Автор: Зулолов И.М"
@@ -40,7 +40,8 @@ ru:
       advanced: "Свбодный"
       hard: "Герой"
       hero: "Ветеран"
-
+    start:
+      failure: "Тестой пустой. Попробуйте другой тест."
   test_passages:
     show:
       header: "Вы проходите тест:"
@@ -55,6 +56,8 @@ ru:
       failur_result: "Вы правильно ответили на %{percent} процентов вопросов и не сдали тест!"
       number_correct_answers: "Количество правильных ответов: %{count}"
       back: "Вернуться к списку тестов"
+    update:
+      failure: "Нужно выбрать какой либо ответ."
   gists:
     success: "Gist успешно сохранен"
     failure: "Во время сохранения gist произошла ошибка"
@@ -148,6 +151,9 @@ ru:
         start: "Начать"
       form_inline:
         submit: "OK"
+      status:
+        published: "Успешно опуликован!"
+        confiscated: "Тест изъят из публикации!"
     gists:
       index:
         user_email: "Email пользователя"

@@ -1,10 +1,17 @@
-<div class="admincontent">
-  <h1><%= t('.header') %></h1>
+<div class="admincontent container mt-4">
+  <h1 class="mb-4"><%= t('.header') %></h1>
 
-  <p>
-    <%= @answer.question.body %>
-  </p>
+  <div class="card mb-4">
+    <div class="card-body">
+      <p class="card-text">
+        <%= @answer.question.body %>
+      </p>
+    </div>
+  </div>
 
-  <%= render 'form'%>
-  <%= link_to t('.back'), admin_question_path(@answer.question) %>
+  <%= render 'form' %>
+
+  <div class="mt-3">
+    <%= link_to t('.back'), admin_question_path(@answer.question), class: 'btn btn-secondary' %>
+  </div>
 </div>

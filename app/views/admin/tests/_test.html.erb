@@ -3,20 +3,25 @@
     <%= content_tag :span, test.title, class: 'test-title', data: { test_id: test.id } %>
     <%= render 'form_inline', test: test == @test ? @test : test %>
   </td>
-  <td><%= test_level(test) %></td>
-  <td class="center"><%= test_questions_number(test) %></td>
-  <td><%= link_to t('admin.author_actions.show'), admin_test_path(test) %></td>
-  <td>
+  <td class="align-middle"><%= test_level(test) %></td>
+  <td class="align-middle text-center"><%= test_questions_number(test) %></td>
+  <td class="align-middle"><%= link_to t('admin.author_actions.show'), admin_test_path(test), class: 'btn btn-link' %></td>
+  <td class="align-middle">
     <%= link_to t('admin.author_actions.edit'), 
                 edit_admin_test_path(test),
                 data: { test_id: test.id },
-                class: 'form-inline-link' %>
+                class: 'btn btn-link form-inline-link' %>
   </td>
-  <td>
-  <%= link_to t('admin.author_actions.delete'),
-              admin_test_path(test),
-              method: :delete,
-              data: { confirm: t('.delete_confirmation')} %>
+  <td class="align-middle">
+    <%= link_to t('admin.author_actions.delete'),
+                admin_test_path(test),
+                method: :delete,
+                data: { confirm: t('.delete_confirmation') },
+                class: 'btn btn-link text-danger' %>
   </td>
-  <td><%= button_to t('.start'), start_test_path(test) %></td>
+  <td class="align-middle"><%= button_to t('.start'), start_test_path(test), class: 'btn btn-success' %></td>
+  <td class="align-middle"><%= test.published ? "Published" : "Unpublished" %></td>
+  <td class="align-middle">
+    <%= button_to test.published ? "Confiscated" : "Publish", status_admin_test_path(test), method: :patch, class: 'btn btn-warning' %>
+  </td>
 </tr>

@@ -2,7 +2,11 @@
               url: update_inline_admin_test_path(test), 
               local: true, 
               class: 'form-inline hide',
-              data: {test_id: test.id} do |form| %>
-  <%= form.text_field :title, class: 'form-control mr-2 w-50' %>
-  <%= form.submit t('.submit'), class: 'btn btn-primary' %>
+              data: { test_id: test.id } do |form| %>
+  <div class="input-group mb-3">
+    <%= form.text_field :title, class: 'form-control' %>
+    <button class="btn btn-primary" type="submit">
+      <%= t('.submit') %>
+    </button>
+  </div>
 <% end %>

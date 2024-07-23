@@ -50,6 +50,7 @@ en:
       exit: "Exit"
       signup: "Sign up"
       signin: "Sign in"
+      feedback_form: "Feedback"
     footer:
       datatime: "Date and time"
       author: "Author: I.M. Zulolov"
@@ -70,7 +71,9 @@ en:
       advanced: "Advanced"
       hard: "Hard"
       hero: "Hero"
-
+    start:
+      failure: "The test is empty. Try another test."
+      
   test_passages:
     result:
       header: "Test completed: %{title}"
@@ -83,6 +86,8 @@ en:
       next_question: "Next question"
       back: "Back to Tests list"
       back_confirmation: "Interrupt execution of the Test?"
+    update:
+      failure: "You need to choose an answer."
   gists:
     success: "Gist was succesfully created!"
     failure: "An error occured while saving gist"

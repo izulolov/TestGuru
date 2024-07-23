@@ -1,11 +1,18 @@
 <div class="admincontent">
-  <li>
-    <%= answer.body %>
-    <%= link_to t('admin.author_actions.show'), admin_answer_path(answer) %>
-    <%= link_to t('admin.author_actions.edit'), edit_admin_answer_path(answer) %>
-    <%= link_to t('admin.author_actions.delete'), 
-                  admin_answer_path(answer),
-                  method: :delete,
-                  data: { confirm: t('admin.author_actions.delete_confirmation') } %>
-  </li>
+  <ul class="list-group">
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      <div>
+        <%= answer.body %>
+      </div>
+      <div>
+        <%= link_to t('admin.author_actions.show'), admin_answer_path(answer), class: 'btn btn-info btn-sm me-2' %>
+        <%= link_to t('admin.author_actions.edit'), edit_admin_answer_path(answer), class: 'btn btn-warning btn-sm me-2' %>
+        <%= link_to t('admin.author_actions.delete'), 
+                      admin_answer_path(answer),
+                      method: :delete,
+                      data: { confirm: t('admin.author_actions.delete_confirmation') },
+                      class: 'btn btn-danger btn-sm' %>
+      </div>
+    </li>
+  </ul>
 </div>

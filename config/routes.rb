@@ -20,10 +20,16 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :gists
     resources :tests do
+      member do
+        patch :status
+      end
       patch :update_inline, on: :member
       resources :questions, shallow: true do
         resources :answers, shallow: true
       end
     end
   end
+
+  resources :feedbacks, only: %i[new create]
+
 end
