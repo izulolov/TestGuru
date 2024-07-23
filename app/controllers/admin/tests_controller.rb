@@ -5,7 +5,7 @@ class Admin::TestsController < Admin::BaseController
   def index
     @tests = Test.all
   end
-  
+
   def status
     if @test.can_be_published?
       @test.update(published: !@test.published)
