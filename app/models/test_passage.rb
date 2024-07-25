@@ -4,6 +4,7 @@ class TestPassage < ApplicationRecord
   belongs_to :current_question, class_name: 'Question', optional: true
 
   before_validation :before_validation_set_question, on: %i[create update]
+  after_update :receiving_award_badge, if: :successfully_passed?
 
   def completed?
     current_question.nil?
@@ -54,5 +55,26 @@ class TestPassage < ApplicationRecord
     else
       test.questions.order(:id).where('id > ?', current_question.id).first
     end
+  end
+
+  def receiving_award_badge
+    Badge.all.each do |badge|
+      if check_badge_rule(badge)
+        user.badges << Badge.last
+      end
+    end
+  end
+
+  def check_badge_rule(badge)
+    case badge.rule
+    when 'first_attempt'
+      first_attempt?
+    else
+      false
+    end
+  end
+
+  def first_attempt?
+    user.test_passages.where(test: test).count == 1
   end
 end
