@@ -1,0 +1,15 @@
+<div class="container mb-4">
+  <h1 class="text-center mb-4">Все бейджи</h1>
+  <div class="row g-4">
+    <% @badges.each do |badge| %>
+      <div class="col-3">
+        <div class="card">
+          <img src="<%= badge.image_url %>" class="card-img-top" alt="<%= badge.name %>" style="width: 200px; height: 200px; object-fit: cover;">
+          <div class="card-body text-center">
+            <h5 class="card-title"><%= badge.name %></h5>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
