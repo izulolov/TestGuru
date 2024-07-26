@@ -1,16 +1,6 @@
-<h1>Создание нового бэйджа</h1>
-<%= form_with model: [:admin, @badge], local: true do |form| %>
-  <div>
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
-  <div>
-    <%= form.label :image_url %>
-    <%= form.text_field :image_url %>
-  </div>
-  <div>
-    <%= form.label :rule %>
-    <%= form.select :rule, Badge::RULES.map { |key, value| [value, key] } %>
-  </div>
-  <%= form.submit 'Создать бэйдж' %>
-<% end %>
+<div class="container mb-4">
+  <h1 class="text-center mb-4">Создание нового бейджа</h1>
+
+  <%= render 'form' %>
+  
+</div>
