@@ -59,9 +59,7 @@ class TestPassage < ApplicationRecord
 
   def receiving_award_badge
     Badge.all.each do |badge|
-      if check_badge_rule(badge)
-        user.badges << Badge.last
-      end
+      check_badge_rule(badge) && user.badges << badge
     end
   end
 
