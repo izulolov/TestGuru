@@ -18,7 +18,6 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    resources :gists
     resources :tests do
       member do
         patch :status
@@ -28,8 +27,10 @@ Rails.application.routes.draw do
         resources :answers, shallow: true
       end
     end
+    resources :gists
+    resources :badges
   end
 
   resources :feedbacks, only: %i[new create]
-
+  resources :badges, only: %i[index]
 end
