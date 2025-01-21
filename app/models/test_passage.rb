@@ -4,6 +4,7 @@ class TestPassage < ApplicationRecord
   belongs_to :current_question, class_name: 'Question', optional: true
 
   before_validation :before_validation_set_question, on: %i[create update]
+  before_update :passed?, if: :completed?
   after_update :process_badges, if: :successfully_passed?
 
   def completed?
@@ -55,6 +56,10 @@ class TestPassage < ApplicationRecord
     else
       test.questions.order(:id).where('id > ?', current_question.id).first
     end
+  end
+
+  def passed?
+    self.passed = successfully_passed?
   end
 
   def process_badges

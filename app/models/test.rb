@@ -17,7 +17,7 @@ class Test < ApplicationRecord
     joins(:category)
     .where(categories: { title: category }) }
   scope :published, -> { where(published: true) }
-  scope :test_by_level, ->(level) { where(level: level) }
+  scope :by_level, ->(level) { where(level: level) }
   
   def self.sort_test_name_by_category(category)
     sort_by_categories(category)

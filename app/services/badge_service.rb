@@ -1,4 +1,5 @@
 class BadgeService
+
   def initialize(user, test)
     @user = user
     @test = test
@@ -18,8 +19,8 @@ class BadgeService
     case badge.rule
     when 'first_attempt'
       first_attempt?
-    when 'all_tests_level_one'
-      passed_all_tests_level_one?
+    when 'all_tests_of_some_level'
+      passed_all_tests_of_some_level?(test.level)
     when 'all_tests_backend'
       passed_all_backend_tests?
     else
@@ -35,12 +36,10 @@ class BadgeService
     user.test_passages.where(test: test).count == 1
   end
 
-  def passed_all_tests_level_one?
-    test_by_level_one = Test.test_by_level(37)
-    passed_tests = user.test_passages.where(test: test_by_level_one, passed: true).count
-    passed_tests = user.test_passages.where(user.testtest: test_by_level_one, passed: true).count
-    test_by_level_one.count == passed_tests
-    #user.tests.where(level: 37).count == user.test_passages.where(level: 37, passed: true).count
+  def passed_all_tests_of_some_level?(level)
+    tests_by_level = Test.by_level(level)
+    passed_tests_count = user.test_passages.where(test: tests_by_level, passed: true).count
+    tests_by_level.count == passed_tests_count
   end
 
   #def passed_all_backend_tests?
