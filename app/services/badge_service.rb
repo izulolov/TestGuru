@@ -20,30 +20,32 @@ class BadgeService
     when 'first_attempt'
       first_attempt?
     when 'all_tests_of_some_level'
-      passed_all_tests_of_some_level?(test.level)
-    when 'all_tests_backend'
-      passed_all_backend_tests?
+      passed_all_tests_of_some_level?
+    when 'all_tests_of_some_category'
+      passed_all_tests_of_some_category?
     else
       false
     end
   end
 
   def award_badge(badge)
-    user.badges << badge #unless user.badges.include?(badge)
+    user.badges << badge
   end
 
   def first_attempt?
     user.test_passages.where(test: test).count == 1
   end
 
-  def passed_all_tests_of_some_level?(level)
-    tests_by_level = Test.by_level(level)
-    passed_tests_count = user.test_passages.where(test: tests_by_level, passed: true).count
-    tests_by_level.count == passed_tests_count
+  def passed_all_tests_of_some_level?
+    all_tests_by_level = Test.by_level(test.level)
+    passed_tests_count = user.test_passages.where(test: all_tests_by_level, passed: true).count
+    all_tests_by_level.count == passed_tests_count
   end
 
-  #def passed_all_backend_tests?
-  #  backend_category = Category.find_by(title: 'Backend')
-  #  user.tests.where(category: backend_category).count { |t| t.passed } == Test.where(category: backend_category).count
-  #end
+  def passed_all_tests_of_some_category?
+    all_tests_by_category = Test.by_category(test.category)
+    all_passed_tests_by_category = user.test_passages.where(test: all_tests_by_category, passed: true)
+                                                      .distinct(:test_id)
+    all_tests_by_category.count == all_passed_tests_by_category.count
+  end
 end

@@ -6,7 +6,9 @@ class Badge < ApplicationRecord
   validates :image_url, presence: true, length: { minimum: 10 }
   validates :rule, presence: true
 
-  RULES = { all_tests_backend: 'Все тесты из категории Backend',
-          first_attempt: 'Успешное прохождение теста с первой попытки',
-          all_tests_of_some_level: 'Успешное прохождение тестов из уровня ' }.freeze
+  RULES = {
+    all_tests_of_some_category: 'За успешное прохождение всех тестов из категории * ',
+    first_attempt: 'За успешное прохождение теста с первой попытки',
+    all_tests_of_some_level: 'За успешное прохождение всех тестов уровня *'
+  }.freeze
 end

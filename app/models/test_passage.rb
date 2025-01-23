@@ -38,7 +38,6 @@ class TestPassage < ApplicationRecord
     self.current_question = next_question
   end
 
-  # Выдается ошибка если вопрос без ответов
   def correct_answer?(answer_ids)
     correct_answers_count = correct_answers.count
 
@@ -65,5 +64,4 @@ class TestPassage < ApplicationRecord
   def process_badges
     BadgeService.new(user, test).award_badges
   end
-
 end
