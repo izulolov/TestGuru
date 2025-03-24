@@ -2,6 +2,16 @@
   <div class="testpassinfo p-3">
     <h1><%= t('.header') %> <%= @test_passage.test.title %></h1>
     <h4><%= t('.question_number', questions_count: @test_passage.test.questions.count) %> </h4>
+    
+    <% if @test_passage.test.timer_enabled? %>
+      <div class="timer-container">
+        <p><%= t('.remaining_time') %>: 
+          <span class="timer badge bg-info text-white" data-remaining-time="<%= @test_passage.remaining_time %>">
+            <%= format('%02d:%02d', @test_passage.remaining_time / 60, @test_passage.remaining_time % 60) %>
+          </span>
+        </p>
+      </div>
+    <% end %>
   </div>
 </div>
 <div class="row">

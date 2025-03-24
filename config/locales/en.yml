@@ -71,6 +71,7 @@ en:
       advanced: "Advanced"
       hard: "Hard"
       hero: "Hero"
+      timer: "%{minutes} min."
     start:
       failure: "The test is empty. Try another test."
       
@@ -80,6 +81,7 @@ en:
       back: "Back to Tests list"
       success: "You gave %{complete_percent}% correct answers and successfully completed the Test!"
       failure: "You gave %{complete_percent}% correct answers and haven't passed the Test!"
+      time_over_message: "The test was completed automatically because the time ran out."
     show:
       header: "You passing a Test:"
       question_number: "Question %{current_question_number} from %{questions_count}:"
@@ -88,6 +90,9 @@ en:
       back_confirmation: "Interrupt execution of the Test?"
     update:
       failure: "You need to choose an answer."
+      time_over: "Time is up! The test has been completed automatically."
+    timer:
+      time_over: "Time is up! Your test will be submitted."
   gists:
     success: "Gist was succesfully created!"
     failure: "An error occured while saving gist"
@@ -181,6 +186,9 @@ en:
         start: "Start"
       form_inline:
         submit: "OK"
+      form:
+        timer_label: "Timer (in minutes)"
+        timer_hint: "Leave 0 or empty if no time limit is required"
     gists:
       index:
         user_email: "User email"

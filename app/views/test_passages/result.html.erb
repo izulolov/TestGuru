@@ -9,7 +9,11 @@
       <p><%= t('test_passages.show.question_number', questions_count: @test_passage.count_questions ) %></p>
       <p><%= t('.number_correct_answers', count: @test_passage.correct_questions) %></p>
     <%end%>
-
+    <% if @test_passage.time_over? %>
+      <div class="alert alert-warning">
+        <%= t('.time_over_message') %>
+      </div>
+    <% end %>
     <p class="p-3"><%= link_to t('.back'), tests_path, method: :get, params: { lang: params[:lang] }, class: 'btn btn-primary', class: 'btn btn-primary' %></p>
   </div>
 </div>
