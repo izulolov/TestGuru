@@ -5,7 +5,6 @@ class TestPassage < ApplicationRecord
 
   before_validation :before_validation_set_question, on: %i[create update]
   before_update :passed?, if: :completed?
-  after_update :process_badges, if: :successfully_passed?
 
   def completed?
     current_question.nil?
@@ -13,7 +12,13 @@ class TestPassage < ApplicationRecord
 
   def accept!(answer_ids)
     self.correct_questions += 1 if correct_answer?(answer_ids)
+    was_completed = completed?
     save!
+
+    # Явно вызываем сервис награждения, если тест завершен и успешно пройден
+    if was_completed && successfully_passed?
+      BadgeService.new(user, test).award_badges
+    end
   end
 
   def percent_correct
@@ -59,9 +64,5 @@ class TestPassage < ApplicationRecord
 
   def passed?
     self.passed = successfully_passed?
-  end
-
-  def process_badges
-    BadgeService.new(user, test).award_badges
   end
 end
