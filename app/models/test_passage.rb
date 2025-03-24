@@ -15,11 +15,11 @@ class TestPassage < ApplicationRecord
 
   def accept!(answer_ids)
     self.correct_questions += 1 if correct_answer?(answer_ids)
-    was_completed = completed?
     save!
-
+    binding.pry
     # Явно вызываем сервис награждения, если тест завершен и успешно пройден
-    if was_completed && successfully_passed?
+    if successfully_passed?
+      #binding.pry
       BadgeService.new(user, test).award_badges
     end
   end
