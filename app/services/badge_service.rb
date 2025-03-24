@@ -20,7 +20,7 @@ class BadgeService
     return false unless test_passage.successfully_passed?
 
     rule_method = "#{badge.rule}?".to_sym
-    binding.pry
+
     if respond_to?(rule_method, true)
       # Передаем бейдж в метод проверки правила, чтобы использовать его параметры
       send(rule_method, badge)
