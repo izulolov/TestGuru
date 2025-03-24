@@ -3,6 +3,9 @@ class TestPassage < ApplicationRecord
   belongs_to :test
   belongs_to :current_question, class_name: 'Question', optional: true
 
+  # Константа для минимального процента успешного прохождения теста
+  SUCCESSFUL_PASSING_PERCENT = 85
+
   before_validation :before_validation_set_question, on: %i[create update]
   before_update :passed?, if: :completed?
 
@@ -30,7 +33,7 @@ class TestPassage < ApplicationRecord
   end
 
   def successfully_passed?
-    percent_correct >= 85
+    percent_correct >= SUCCESSFUL_PASSING_PERCENT
   end
 
   def current_question_possition
