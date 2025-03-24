@@ -25,4 +25,9 @@ class Test < ApplicationRecord
   def can_be_published?
     !(questions.empty? || answers.empty?)
   end
+
+  
+  def timer_enabled?
+    timer.present? && timer.positive?
+  end
 end

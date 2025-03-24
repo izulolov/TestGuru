@@ -7,10 +7,11 @@ class TestPassage < ApplicationRecord
   SUCCESSFUL_PASSING_PERCENT = 85
 
   before_validation :before_validation_set_question, on: %i[create update]
+  before_validation :set_timer, on: :create
   before_update :passed?, if: :completed?
 
   def completed?
-    current_question.nil?
+    current_question.nil? || time_over?
   end
 
   def accept!(answer_ids)
@@ -37,6 +38,26 @@ class TestPassage < ApplicationRecord
 
   def current_question_possition
     test.questions.order(:id).where('id < ?', current_question.id).count + 1
+  end
+  
+  # Инициализация таймера при старте теста
+  def set_timer
+    if test.timer_enabled?
+      self.started_at = Time.current
+      self.expires_at = started_at + test.timer.minutes
+    end
+  end
+
+  # Проверка, истекло ли время на прохождение теста
+  def time_over?
+    test.timer_enabled? && expires_at.present? && Time.current > expires_at
+  end
+
+  # Расчет оставшегося времени в секундах
+  def remaining_time
+    return unless test.timer_enabled? && expires_at.present?
+    
+    (expires_at - Time.current).to_i.positive? ? (expires_at - Time.current).to_i : 0
   end
 
   private
