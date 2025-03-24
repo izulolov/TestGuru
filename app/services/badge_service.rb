@@ -16,14 +16,12 @@ class BadgeService
   attr_reader :user, :test
 
   def check_badge_rule(badge)
-    case badge.rule
-    when 'first_attempt'
-      first_attempt?
-    when 'all_tests_of_some_level'
-      passed_all_tests_of_some_level?
-    when 'all_tests_of_some_category'
-      passed_all_tests_of_some_category?
+    rule_method = "#{badge.rule}?".to_sym
+
+    if respond_to?(rule_method, true)
+      send(rule_method)
     else
+      Rails.logger.warn("Неизвестный метод управления значком: #{rule_method}")
       false
     end
   end
