@@ -17,7 +17,7 @@ class Test < ApplicationRecord
   scope :by_level, ->(level) { where(level: level) }
   scope :by_category, ->(category) { where(category: category)}
   def self.sort_test_name_by_category(category)
-    by_categories(category)
+    by_category(category)
     .order('tests.title DESC')
     .pluck(:title)
   end
