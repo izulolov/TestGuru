@@ -1,8 +1,8 @@
 class BadgeService
-  def initialize(user, test)
-    @user = user
-    @test = test
-    @test_passage = user.test_passages.where(test: test).order(created_at: :desc).first
+  def initialize(test_passage)
+    @test_passage = test_passage
+    @user = test_passage.user
+    @test = test_passage.test
   end
 
   def award_badges

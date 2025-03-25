@@ -16,7 +16,7 @@ class TestPassage < ApplicationRecord
   # Новый метод для проверки завершения и награждения. вызову в контроллере
   def check_completion
     if completed? && successfully_passed?
-      BadgeService.new(user, test).award_badges
+      BadgeService.new(self).award_badges
     end
   end
 
