@@ -62,13 +62,14 @@ class BadgeService
     return false unless test.category_id == category_id
     
     # Получаем все тесты нужной категории напрямую, без предварительной загрузки категории
-    all_tests_by_category = Test.where(category_id: category_id)
+    all_tests_by_category = Test.by_category_id(category_id)
     return false if all_tests_by_category.empty?
     
     # Получаем уникальные ID тестов, которые пользователь прошел успешно
-    passed_test_ids = user.test_passages.where(passed: true)
+    passed_test_ids = user.test_passages.passed
                           .where(test_id: all_tests_by_category)
-                          .select(:test_id).distinct.pluck(:test_id)
+                          .select(:test_id)
+                          .distinct.pluck(:test_id)
     
     # Проверяем, что пользователь прошел все тесты этой категории
     all_tests_by_category.count == passed_test_ids.count

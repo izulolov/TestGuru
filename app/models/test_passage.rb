@@ -3,6 +3,8 @@ class TestPassage < ApplicationRecord
   belongs_to :test
   belongs_to :current_question, class_name: 'Question', optional: true
 
+  scope :passed, -> { where(passed: true) }
+
   # Константа для минимального процента успешного прохождения теста
   SUCCESSFUL_PASSING_PERCENT = 85
 
