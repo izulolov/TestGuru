@@ -5,6 +5,7 @@ class TestPassage < ApplicationRecord
 
   before_validation :before_validation_set_question, on: :create
   after_create :set_timer
+  before_save :check_completion
 
   def completed?
     current_question.nil? || time_over?
@@ -13,6 +14,13 @@ class TestPassage < ApplicationRecord
   def accept!(answer_ids)
     self.correct_questions += 1 if correct_answer?(answer_ids)
     self.current_question = next_question
+    
+    # Если тест завершен из-за ответа на последний вопрос, записываем время завершения
+    if current_question.nil?
+      self.passed = successfully_passed?
+      self.end_time = Time.current
+    end
+    
     save!
   end
 
@@ -36,22 +44,31 @@ class TestPassage < ApplicationRecord
   # Методы для работы с таймером
   def set_timer
     return unless test.has_timer?
-    update(end_time: created_at + test.timer.minutes)
+    update_column(:deadline_time, created_at + test.timer.minutes)
   end
 
   def time_over?
-    return false unless test.has_timer? && end_time.present?
-    Time.current > end_time
+    return false unless test.has_timer? && deadline_time.present?
+    Time.current > deadline_time
   end
 
   def remaining_time
-    return nil unless test.has_timer? && end_time.present?
+    return nil unless test.has_timer? && deadline_time.present?
     
-    remaining = (end_time - Time.current).to_i
+    remaining = (deadline_time - Time.current).to_i
     remaining.positive? ? remaining : 0
   end
 
   private
+
+  # Проверяем завершение теста перед сохранением
+  def check_completion
+    # Если тест завершен из-за истечения времени, но end_time не установлен
+    if time_over? && end_time.nil?
+      self.passed = successfully_passed?
+      self.end_time = Time.current
+    end
+  end
 
   def before_validation_set_question
     if new_record?

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2025_03_24_200953) do
+ActiveRecord::Schema.define(version: 2025_03_25_121341) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -78,7 +78,9 @@ ActiveRecord::Schema.define(version: 2025_03_24_200953) do
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "passed", default: false, null: false
     t.datetime "end_time"
+    t.datetime "deadline_time"
     t.index ["current_question_id"], name: "index_test_passages_on_current_question_id"
+    t.index ["deadline_time"], name: "index_test_passages_on_deadline_time"
     t.index ["test_id"], name: "index_test_passages_on_test_id"
     t.index ["user_id"], name: "index_test_passages_on_user_id"
   end
