@@ -35,7 +35,7 @@ class BadgeService
   end
 
   def first_attempt?(badge)
-    user.test_passages.where(test: test).count == 1
+    user.test_passages.where(test: test).count == 1 && test_passage.passed
   end
 
   def passed_all_tests_of_some_level?(badge)
