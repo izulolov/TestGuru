@@ -13,14 +13,16 @@ class TestPassage < ApplicationRecord
     current_question.nil?
   end
 
+  # Новый метод для проверки завершения и награждения. вызову в контроллере
+  def check_completion
+    if completed? && successfully_passed?
+      BadgeService.new(user, test).award_badges
+    end
+  end
+
   def accept!(answer_ids)
     self.correct_questions += 1 if correct_answer?(answer_ids)
     save!
-
-    # Явно вызываем сервис награждения, если тест завершен и успешно пройден
-    if successfully_passed?
-      BadgeService.new(user, test).award_badges
-    end
   end
 
   def percent_correct
