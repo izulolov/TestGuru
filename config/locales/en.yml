@@ -82,10 +82,15 @@ en:
       failure: "You gave %{complete_percent}% correct answers and haven't passed the Test!"
     show:
       header: "You passing a Test:"
-      question_number: "Question %{current_question_number} from %{questions_count}:"
+      question_number: "Total questions: %{questions_count}"
+      question_position: "Question %{question_position}"
       next_question: "Next question"
       back: "Back to Tests list"
       back_confirmation: "Interrupt execution of the Test?"
+      time_remaining: "Time remaining"
+      seconds: "seconds"
+      time_expired: "Time is up! The test will be completed automatically."
+      time_over: "Time is over"
     update:
       failure: "You need to choose an answer."
   gists:
