@@ -146,7 +146,14 @@ en:
         answers: "Answers"
     tests:
       create:
-        success: "Test created successfully!"
+        success: "Test was successfully created"
+        failure: "Error creating test"
+      update:
+        success: "Test was successfully updated"
+        failure: "Error updating test"
+      destroy:
+        success: "Test was successfully deleted"
+        failure: "Error deleting test"
       edit:
         header: "Edit a Test"
         back: "Back to Tests list"
@@ -181,6 +188,11 @@ en:
         start: "Start"
       form_inline:
         submit: "OK"
+      form:
+        timer_label: "Time limit"
+        timer_placeholder: "Enter time in minutes"
+        minutes: "minutes"
+        timer_help: "Leave empty or set to 0 if no time limit is required"
     gists:
       index:
         user_email: "User email"

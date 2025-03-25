@@ -116,7 +116,16 @@ ru:
         answers: "Ответы"
     tests:
       create:
-        success: "Тест успешно создан!"
+        success: "Тест успешно создан"
+        failure: "Ошибка при создании теста"
+      update:
+        success: "Тест успешно обновлен"
+        failure: "Ошибка при обновлении теста"
+      destroy:
+        success: "Тест успешно удален"
+        failure: "Ошибка при удалении теста"
+      update_inline:
+        success: "Тест успешно обновлен"
       edit:
         header: "Редактировать тест"
         back: "Вернуться к списку тестов"
@@ -154,6 +163,11 @@ ru:
       status:
         published: "Успешно опуликован!"
         confiscated: "Тест изъят из публикации!"
+      form:
+        timer_label: "Ограничение по времени"
+        timer_placeholder: "Введите время в минутах"
+        minutes: "минут"
+        timer_help: "Оставьте пустым или установите 0, если ограничение по времени не требуется"
     gists:
       index:
         user_email: "Email пользователя"

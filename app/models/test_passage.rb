@@ -3,8 +3,7 @@ class TestPassage < ApplicationRecord
   belongs_to :test
   belongs_to :current_question, class_name: 'Question', optional: true
 
-  before_validation :before_validation_set_question, on: %i[create update]
-  # Добавляем инициализацию таймера после создания записи
+  before_validation :before_validation_set_question, on: :create
   after_create :set_timer
 
   def completed?
@@ -13,6 +12,7 @@ class TestPassage < ApplicationRecord
 
   def accept!(answer_ids)
     self.correct_questions += 1 if correct_answer?(answer_ids)
+    self.current_question = next_question
     save!
   end
 
@@ -25,14 +25,15 @@ class TestPassage < ApplicationRecord
   end
 
   def successfully_passed?
-    percent_correct >= 85 ? true : false
+    percent_correct >= 85
   end
 
   def current_question_possition
+    return 1 unless current_question.present?
     test.questions.order(:id).where('id < ?', current_question.id).count + 1
   end
   
-  # Добавляем методы для работы с таймером
+  # Методы для работы с таймером
   def set_timer
     return unless test.has_timer?
     update(end_time: created_at + test.timer.minutes)
@@ -53,11 +54,16 @@ class TestPassage < ApplicationRecord
   private
 
   def before_validation_set_question
-    self.current_question = next_question
+    if new_record?
+      self.current_question = test.questions.first
+    else
+      self.current_question = next_question
+    end
   end
 
-  # Выдается ошибка если вопрос без ответов
   def correct_answer?(answer_ids)
+    return false if answer_ids.nil?
+    
     correct_answers_count = correct_answers.count
 
     (correct_answers_count == correct_answers.where(id: answer_ids).count) &&
@@ -69,10 +75,6 @@ class TestPassage < ApplicationRecord
   end
 
   def next_question
-    if new_record?
-      test.questions.first
-    else
-      test.questions.order(:id).where('id > ?', current_question.id).first
-    end
+    test.questions.order(:id).where('id > ?', current_question.id).first
   end
 end
