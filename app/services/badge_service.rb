@@ -56,17 +56,13 @@ class BadgeService
   end
 
   def passed_all_tests_of_some_category?(badge)
-    # Используем значение категории из бейджа
     category_id = badge.rule_value.to_i
     
     # Сначала проверяем, соответствует ли текущий тест категории бейджа
     return false unless test.category_id == category_id
     
-    category = Category.find_by(id: category_id)
-    return false unless category
-    
-    # Теперь делаем запрос к БД только если предыдущая проверка прошла успешно
-    all_tests_by_category = Test.by_category(category)
+    # Получаем все тесты нужной категории напрямую, без предварительной загрузки категории
+    all_tests_by_category = Test.where(category_id: category_id)
     return false if all_tests_by_category.empty?
     
     # Получаем уникальные ID тестов, которые пользователь прошел успешно
@@ -77,4 +73,5 @@ class BadgeService
     # Проверяем, что пользователь прошел все тесты этой категории
     all_tests_by_category.count == passed_test_ids.count
   end
+  
 end
