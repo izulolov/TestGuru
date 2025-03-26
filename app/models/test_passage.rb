@@ -14,13 +14,6 @@ class TestPassage < ApplicationRecord
   def accept!(answer_ids)
     self.correct_questions += 1 if correct_answer?(answer_ids)
     self.current_question = next_question
-    
-    # Если тест завершен из-за ответа на последний вопрос, записываем время завершения
-    if current_question.nil?
-      self.passed = successfully_passed?
-      self.end_time = Time.current
-    end
-    
     save!
   end
 
@@ -61,10 +54,8 @@ class TestPassage < ApplicationRecord
 
   private
 
-  # Проверяем завершение теста перед сохранением
   def check_completion
-    # Если тест завершен из-за истечения времени, но end_time не установлен
-    if time_over? && end_time.nil?
+    if completed? && end_time.nil?
       self.passed = successfully_passed?
       self.end_time = Time.current
     end

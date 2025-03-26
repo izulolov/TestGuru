@@ -23,10 +23,6 @@ class TestPassagesController < ApplicationController
     end
   end
 
-  def gist
-    # Метод gist остается без изменений
-  end
-
   private
 
   def set_test_passage
