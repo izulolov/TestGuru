@@ -16,9 +16,6 @@ class BadgeService
   attr_reader :user, :test, :test_passage
 
   def check_badge_rule(badge)
-    # Проверяем, что тест пройден успешно
-    return false unless test_passage.passed
-
     rule_method = "#{badge.rule}?".to_sym
 
     if respond_to?(rule_method, true)
@@ -35,7 +32,7 @@ class BadgeService
   end
 
   def first_attempt?(badge)
-    user.test_passages.where(test: test).count == 1 && test_passage.passed
+    user.test_passages.where(test: test).count == 1 && test_passage.successfully_passed?
   end
 
   def passed_all_tests_of_some_level?(badge)
@@ -54,15 +51,13 @@ class BadgeService
     
     all_tests_by_level.count == passed_test_ids.count
   end
-
+ 
   def passed_all_tests_of_some_category?(badge)
-    category_id = badge.rule_value.to_i
+    # Получаем название категории из бейджа вместо ID
+    category_name = badge.rule_value
     
-    # Сначала проверяем, соответствует ли текущий тест категории бейджа
-    return false unless test.category_id == category_id
-    
-    # Получаем все тесты нужной категории напрямую, без предварительной загрузки категории
-    all_tests_by_category = Test.by_category_id(category_id)
+    # Используем существующий метод поиска тестов по названию категории
+    all_tests_by_category = Test.by_category(category_name)
     return false if all_tests_by_category.empty?
     
     # Получаем уникальные ID тестов, которые пользователь прошел успешно
@@ -74,5 +69,4 @@ class BadgeService
     # Проверяем, что пользователь прошел все тесты этой категории
     all_tests_by_category.count == passed_test_ids.count
   end
-  
 end

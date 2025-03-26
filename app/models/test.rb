@@ -16,7 +16,6 @@ class Test < ApplicationRecord
   scope :published, -> { where(published: true) }
   scope :by_level, ->(level) { where(level: level) }
   scope :by_category, ->(category) { where(category: category)}
-  scope :by_category_id, ->(category_id) { where(category_id: category_id) }
   def self.sort_test_name_by_category(category)
     by_category(category)
     .order('tests.title DESC')
