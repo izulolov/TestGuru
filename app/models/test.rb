@@ -8,6 +8,8 @@ class Test < ApplicationRecord
 
   validates :title, presence: true, uniqueness: { scope: :level }
   validates :level, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
+  # Добавляем валидацию для таймера
+  validates :timer, numericality: { only_integer: true, greater_than_or_equal_to: 0, allow_nil: true }
   #validate :can_be_published?
 
   scope :easy, -> { where(level: (0..1)) }
@@ -24,5 +26,10 @@ class Test < ApplicationRecord
 
   def can_be_published?
     !(questions.empty? || answers.empty?)
+  end
+  
+  # Добавляем метод для проверки наличия таймера
+  def has_timer?
+    timer.present? && timer.positive?
   end
 end

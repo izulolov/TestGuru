@@ -3,7 +3,23 @@
     <h1><%= t('.header') %> <%= @test_passage.test.title %></h1>
     <h4><%= t('.question_number', questions_count: @test_passage.test.questions.count) %> </h4>
   </div>
+  <% if @test_passage.test.has_timer? %>
+    <div class="row">
+      <div class="col">
+        <div class="timer-container p-2 text-center">
+          <h4><%= t('.time_remaining') %>: 
+            <span id="timer" data-remaining-time="<%= @test_passage.remaining_time %>" 
+                  data-redirect-url="<%= result_test_passage_path(@test_passage) %>">
+              <%= @test_passage.remaining_time %>
+            </span> <%= t('.seconds') %>
+          </h4>
+        </div>
+        <div hidden data-time-expired-message="<%= t('.time_expired') %>"></div>
+      </div>
+    </div>
+  <% end %>
 </div>
+
 <div class="row">
   <div class="testpasscontainer p-3">
     <b class="p-3">

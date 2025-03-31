@@ -1,22 +1,19 @@
 class TestPassagesController < ApplicationController
-
   before_action :authenticate_user!
   before_action :set_test_passage, only: %i[show update result gist]
+  # Добавляем проверку на истечение времени перед показом и обновлением теста
+  before_action :check_time, only: %i[show update]
 
   def show
-
+    # Если время истекло, это будет обработано в before_action :check_time
   end
 
   def result
-
+    # Страница результатов
   end
 
   def update
-    if params[:answer_ids].blank?
-      flash.now[:alert] = "#{t('.failure')}"
-    else
-      @test_passage.accept!(params[:answer_ids])
-    end
+    params[:answer_ids].blank? ? flash.now[:alert] = "#{t('.failure')}" : @test_passage.accept!(params[:answer_ids])
 
     # successfully_passed? а не passed? потому, что пассед закрытый и меняет состояние поле passed в таблице тестпассаж
     if @test_passage.completed?
@@ -33,5 +30,15 @@ class TestPassagesController < ApplicationController
 
   def set_test_passage
     @test_passage = TestPassage.find(params[:id])
+  end
+  
+  # Добавляем метод для проверки истечения времени
+  def check_time
+    return unless @test_passage.test.has_timer?
+    
+    if @test_passage.time_over?
+      TestsMailer.completed_test(@test_passage).deliver_now
+      redirect_to result_test_passage_path(@test_passage), alert: t('.time_over')
+    end
   end
 end
