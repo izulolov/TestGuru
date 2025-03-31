@@ -1,0 +1,21 @@
+<% if current_user.badges.empty? %>
+  <div class="container mb-4">
+    <h1 class="text-center mb-4">У Вас пока нет бейджов!</h1>
+  </div>
+<% else %>
+  <div class="container mb-4">
+    <h1 class="text-center mb-4">Ваши бейджи</h1>
+    <div class="row g-4">
+      <% current_user.badges.each do |badge| %>
+        <div class="col-3">
+          <div class="card">
+            <img src="<%= badge.image_url %>" class="card-img-top mx-auto" alt="<%= badge.name %>" style="width: 200px; height: 200px; object-fit: cover;">
+            <div class="card-body text-center">
+              <h5 class="card-title"><%= badge.name %></h5>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+<% end %>

@@ -6,7 +6,9 @@
 
   <div class="quick-actions d-flex justify-content-start p-2">
     <%= link_to t('.new_test'), new_admin_test_path, class: 'btn btn-primary me-2' %>
-    <%= link_to t('.all_gists'), admin_gists_path, class: 'btn btn-primary' %>
+    <%= link_to t('.all_gists'), admin_gists_path, class: 'btn btn-primary me-2' %>
+    <%= link_to 'Создать Badge', new_admin_badge_path, class: 'btn btn-primary me-2' %>
+    <%= link_to 'Все Badge-и', admin_badges_path, class: 'btn btn-primary' %>
   </div>
 
   <%= render 'shared/errors', resource: @test %>

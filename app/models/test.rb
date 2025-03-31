@@ -15,13 +15,11 @@ class Test < ApplicationRecord
   scope :easy, -> { where(level: (0..1)) }
   scope :middle, -> { where(level: (2..4)) }
   scope :difficult, -> { where(level: (5..Float::INFINITY)) }
-  scope :sort_by_categories, ->(category) {
-    joins(:category)
-    .where(categories: { title: category }) }
   scope :published, -> { where(published: true) }
-
+  scope :by_level, ->(level) { where(level: level) }
+  scope :by_category, ->(category) { where(category: category)}
   def self.sort_test_name_by_category(category)
-    sort_by_categories(category)
+    by_category(category)
     .order('tests.title DESC')
     .pluck(:title)
   end

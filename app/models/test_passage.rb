@@ -6,6 +6,12 @@ class TestPassage < ApplicationRecord
   before_validation :before_validation_set_question, on: :create
   after_create :set_timer
   before_save :check_completion
+  before_update :passed?, if: :completed?
+  
+  scope :passed, -> { where(passed: true) }
+  
+  # Константа для минимального процента успешного прохождения теста
+  SUCCESSFUL_PASSING_PERCENT = 85
 
   def completed?
     current_question.nil? || time_over?
@@ -26,7 +32,7 @@ class TestPassage < ApplicationRecord
   end
 
   def successfully_passed?
-    percent_correct >= 85
+    percent_correct >= SUCCESSFUL_PASSING_PERCENT
   end
 
   def current_question_possition
@@ -84,5 +90,9 @@ class TestPassage < ApplicationRecord
 
   def next_question
     test.questions.order(:id).where('id > ?', current_question.id).first
+  end
+
+  def passed?
+    self.passed = successfully_passed?
   end
 end
