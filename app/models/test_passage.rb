@@ -3,7 +3,13 @@ class TestPassage < ApplicationRecord
   belongs_to :test
   belongs_to :current_question, class_name: 'Question', optional: true
 
+  scope :passed, -> { where(passed: true) }
+  
+  # Константа для минимального процента успешного прохождения теста
+  SUCCESSFUL_PASSING_PERCENT = 85
+
   before_validation :before_validation_set_question, on: %i[create update]
+  before_update :passed?, if: :completed?
 
   def completed?
     current_question.nil?
@@ -23,7 +29,7 @@ class TestPassage < ApplicationRecord
   end
 
   def successfully_passed?
-    percent_correct >= 85 ? true : false
+    percent_correct >= SUCCESSFUL_PASSING_PERCENT
   end
 
   def current_question_possition
@@ -36,7 +42,6 @@ class TestPassage < ApplicationRecord
     self.current_question = next_question
   end
 
-  # Выдается ошибка если вопрос без ответов
   def correct_answer?(answer_ids)
     correct_answers_count = correct_answers.count
 
@@ -54,5 +59,9 @@ class TestPassage < ApplicationRecord
     else
       test.questions.order(:id).where('id > ?', current_question.id).first
     end
+  end
+
+  def passed?
+    self.passed = successfully_passed?
   end
 end

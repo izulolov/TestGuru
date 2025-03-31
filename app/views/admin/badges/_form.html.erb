@@ -1,0 +1,22 @@
+<%= form_with model: [:admin, @badge], local: true do |form| %>
+
+    <div class="mb-3">
+      <%= form.label :name, class: 'form-label' %>
+      <%= form.text_field :name, class: 'form-control' %>
+    </div>
+
+    <div class="mb-3">
+      <%= form.label :image_url, class: 'form-label' %>
+      <%= form.text_field :image_url, class: 'form-control' %>
+    </div>
+
+    <div class="mb-3">
+      <%= form.label :rule, class: 'form-label' %>
+      <%= form.select :rule, Badge::RULES.map { |key, value| [value, key] }, {}, class: 'form-select' %>
+    </div>
+
+    <div class="text-center">
+      <%= form.submit 'Создать бейдж', class: 'btn btn-success' %>
+      <%= link_to 'Отмена', admin_badges_path, class: 'btn btn-secondary ms-2' %>
+    </div>
+  <% end %>
